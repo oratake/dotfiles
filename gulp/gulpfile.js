@@ -8,6 +8,7 @@ const notify       = require('gulp-notify');
 const browserSync  = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
 const cmd          = require('child_process').exec;
+const php          = require('gulp-connect-php');
 
 const paths = {
 	'scss': './src/sass/',
@@ -16,10 +17,16 @@ const paths = {
 	'js'  : './docs/scripts/'
 }
 
+const connectOptions = {
+	port: 8001,
+	base: './docs/'
+}
+
 // browser-sync options
 const bsOptions = {
 	server: { baseDir: paths.html },
-	tunnel: true
+	proxy: 'localhost:8001'
+	// tunnel: true // 外部テスト用	
 }
 
 // sass options
@@ -52,7 +59,8 @@ gulp.task('scss', () => {
 
 //Browser Sync
 gulp.task('browser-sync', () => {
-	browserSync(bsOptions);
+	php.server(connectOptions, () => {
+		browserSync(bsOptions)});
 	gulp.watch(paths.js + '**/*.js', reload);
 	gulp.watch(paths.html + '**/*.html', reload);
 	gulp.watch(paths.css + '**/*.css', reload);
