@@ -7,6 +7,7 @@ const plumber      = require('gulp-plumber');
 const notify       = require('gulp-notify');
 const browserSync  = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
+const cmd          = require('child_process').exec;
 
 const paths = {
 	'scss': './src/sass/',
@@ -39,7 +40,8 @@ const reload = done => {
 gulp.task('scss', () => {
 	return gulp.src(paths.scss + '**/*.scss')
 		.pipe(plumber({
-			errorHandler: notify.onError("Error: <%= error.message %>")
+			// errorHandler: notify.onError("Error: <%= error.message %>")
+			errorHandler: cmd('toast -Text "Error: <%= error.message %>"')
 		}))
 		.pipe(sass(sassOptions))
 		.pipe(autoprefixer({remove:false}))
@@ -60,7 +62,7 @@ gulp.task('browser-sync', () => {
 // });
 
 // watch
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 	gulp.watch(paths.scss + '**/*.scss', gulp.task('scss'));
 });
 
