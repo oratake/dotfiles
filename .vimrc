@@ -21,7 +21,7 @@ set smartindent " 複数行貼り付けがおかしくなるかも。:set paste�
 set cursorline
 
 set list " 空白文字可視化
-set listchars=tab:>>-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:«↲
 
 " ビープ停止
 set visualbell t_vb=
