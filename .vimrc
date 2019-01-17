@@ -15,6 +15,7 @@ set tabstop=2 " tab文字の表示文字数
 set shiftwidth=2 " 自動で挿入するインデントの文字数
 set softtabstop=0 " tabで挿入する文字数 無指定でts準拠
 " :set ts= sw= sts= でコマンド設定可
+
 set smartindent " 複数行貼り付けがおかしくなるかも。:set paste のあとペースト。
 
 " 行
