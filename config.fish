@@ -3,6 +3,7 @@ alias open='explorer.exe'
 
 alias vf='vim ~/.config/fish/config.fish'
 alias sf='source ~/.config/fish/config.fish'
+alias vv='vim ~/.config/nvim/init.vim'
 
 # ゴミ箱
 if [ -d $HOME/.Trash ]
@@ -16,15 +17,3 @@ end
 
 # set fish_function_path $fish_function_path "/usr/local/lib/python2.7/dist-packages/powerline/bindings/fish"
 # powerline-setup
-
-function fish_greeting
-  echo '><))"> Gyo gyo.'
-end
-
-function fish_prompt
-  printf '\n%s%s%s\n><))"> ' (set_color #fish_color_cwd) (prompt_pwd) (set_color normal)
-end
-
-function fish_right_prompt
-  date '+[%T %Y/%m/%d]'
-end

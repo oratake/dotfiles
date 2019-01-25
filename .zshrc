@@ -49,3 +49,4 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug load
+
