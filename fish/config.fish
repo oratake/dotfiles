@@ -25,10 +25,17 @@ end
 # alias
 # --------------------
 
+alias vim='nvim'
 alias vi='/usr/local/bin/nvim'
 alias vf='vim ~/.config/fish/config.fish'
 alias sf='source ~/.config/fish/config.fish'
 alias vv='vim ~/.config/nvim/init.vim'
+
+# --------------------
+# keyBind
+# --------------------
+
+
 
 # プロンプト設定
 # function fish_prompt
