@@ -62,7 +62,7 @@ set hidden " 保存されていなくても別ファイルが開ける
 
 
 " カーソル移動
-set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
+" set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
 
 set number " 行番号
 set title " ターミナルのタイトル表示
