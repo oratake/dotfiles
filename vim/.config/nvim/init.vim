@@ -107,3 +107,9 @@ inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" </でHTML閉じタグ補完
+augroup HTMLCloser
+  autocmd!
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
