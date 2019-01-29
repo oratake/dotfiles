@@ -94,7 +94,16 @@ set hlsearch " 検索文字列のハイライト
 set visualbell t_vb= " 空にする
 set noerrorbells
 
+" --------------------
 " キーバインド
+" --------------------
+
 inoremap <silent> jj <ESC>
 noremap <C-h> 0
 noremap <C-l> $
+
+" 括弧補完
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
