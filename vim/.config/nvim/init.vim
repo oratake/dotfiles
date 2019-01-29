@@ -52,7 +52,7 @@ if has("syntax")
   syntax on
 endif
 
-" colorscheme molokai
+" colorscheme
 colorscheme japanesque
 set termguicolors " truecolor
 
@@ -61,7 +61,7 @@ set mouse=a
 
 set confirm " 保存されていないファイルは終了時に保存確認
 set hidden " 保存されていなくても別ファイルが開ける
-
+set noswapfile " スワップファイルを作らない
 
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
