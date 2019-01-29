@@ -6,7 +6,7 @@ echo "Your env is "(uname)"."
 
 switch (uname -a)
   ## Windows10 WSL Ubuntu()設定
-  case '*Windows*'
+  case '*Linux*Microsoft*'
     alias open='explorer.exe'
 
     ## ゴミ箱
