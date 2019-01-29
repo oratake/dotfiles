@@ -3,7 +3,7 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
+" dein.vimのディレクトリ
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
