@@ -21,6 +21,11 @@ switch (uname -a)
     alias rm='rmtrash'
 end
 
+# 環境変数
+set -x XDG_CONFIG_HOME $HOME".config"
+set -x XDG_CACHE_HOME $HOME".cache"
+# 削除時 set -e 変数名
+
 # --------------------
 # alias
 # --------------------
