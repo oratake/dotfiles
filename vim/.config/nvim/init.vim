@@ -29,7 +29,7 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('KazuakiM/vim-qfstatusline')
   call dein#add('mojako/ref-sources.vim')
   call dein#add('pangloss/vim-javascript')
-  call dein#add('Shougo/neocomplete.vim')
+  " call dein#add('Shougo/neocomplete.vim') " OUTDATED -> deoplete
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
   call dein#add('thinca/vim-quickrun')
