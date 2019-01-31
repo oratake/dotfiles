@@ -4,10 +4,19 @@
 
 echo "Your env is "(uname)"."
 
+# ゴミ箱($HOME/.Trash)
+# https://github.com/rcmdnk/trash
+if [ -d /usr/local/bin/trash ]
+else
+  echo '[CAUTION] It does not have "trash.sh"
+Install this sh: https://github.com/rcmdnk/trash'
+end
+
 switch (uname -a)
   ## Windows10 WSL Ubuntu()設定
   case '*Linux*Microsoft*'
     alias open='explorer.exe'
+    alias o='explorer.exe .'
 
     ## ゴミ箱
     if [ -d $HOME/.Trash ]
@@ -18,12 +27,11 @@ switch (uname -a)
 
   ## OSX(Darwin)設定
   case '*Darwin*'
-    alias rm='rmtrash'
+    alias rm='trash'
 end
 
 # 環境変数
-set -x XDG_CONFIG_HOME $HOME".config"
-set -x XDG_CACHE_HOME $HOME".cache"
+# 本来はlocalな.fishとかに書くもの
 set -x XDG_CONFIG_HOME $HOME"/.config"
 set -x XDG_CACHE_HOME $HOME"/.cache"
 # 削除時 set -e 変数名
