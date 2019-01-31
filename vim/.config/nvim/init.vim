@@ -10,7 +10,7 @@ if &compatible
 endif
 
 " dein.vimのディレクトリ
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
 
 let s:dein_cache_dir =$XDG_CACHE_HOME . '/dein'
 let s:dein_config_dir =$XDG_CONFIG_HOME . '/nvim'
@@ -19,10 +19,14 @@ if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
 " Let dein manage dein
-  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add(s:dein_cache_dir.'/dein/repos/github.com/Shougo/dein.vim')
 
+<<<<<<< HEAD
   call dein#load_toml(s:dein_config_dir.'/dein.toml', {'lazy': 0})
   call dein#load_toml(s:dein_config_dir.'/dein_lazy.toml', {'lazy': 1})
+=======
+  call dein#load_toml(s:dein_config_dir.'/dein.toml')
+>>>>>>> e3bbb644ab3d6e296fcd41c7de9a425cf57304ec
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -86,7 +90,7 @@ let g:ref_jquery_doc_path     = $HOME . '/.vim/dein.vim/repos/github.com/mustard
 let g:ref_phpmanual_path      = $HOME . '/.vim/vim-ref/php-chunked-xhtml'
 let g:ref_use_cache           = 1
 let g:ref_use_vimproc         = 1
-"}}}
+"}}
 
 
 " vim-qfstatusline {{{
