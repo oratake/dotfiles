@@ -2,7 +2,7 @@
 " VimでJavaScript開発環境を作成 https://qiita.com/KazuakiM/items/21054883b57f895875c0
 
 " Variables 変数たち
-" let s:envHome      = ! exists('s:envHome')      ? $HOME       : s:envHome
+let s:envHome      = ! exists('s:envHome')      ? $HOME       : s:envHome
 
 "dein Scripts-----------------------------
 if &compatible
@@ -10,7 +10,7 @@ if &compatible
 endif
 
 " dein.vimのディレクトリ
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
 
 let s:dein_cache_dir =$XDG_CACHE_HOME . '/dein'
 let s:dein_config_dir =$XDG_CONFIG_HOME . '/nvim'
@@ -19,9 +19,9 @@ if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
 " Let dein manage dein
-  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add(s:dein_cache_dir.'/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#load_toml('$HOME/.vim/dein.toml')
+  call dein#load_toml(s:dein_config_dir.'/dein.toml')
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -85,7 +85,7 @@ let g:ref_jquery_doc_path     = $HOME . '/.vim/dein.vim/repos/github.com/mustard
 let g:ref_phpmanual_path      = $HOME . '/.vim/vim-ref/php-chunked-xhtml'
 let g:ref_use_cache           = 1
 let g:ref_use_vimproc         = 1
-"}}}
+"}}
 
 
 " vim-qfstatusline {{{
