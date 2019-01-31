@@ -21,12 +21,8 @@ if dein#load_state(s:dein_cache_dir)
 " Let dein manage dein
   call dein#add(s:dein_cache_dir.'/dein/repos/github.com/Shougo/dein.vim')
 
-<<<<<<< HEAD
   call dein#load_toml(s:dein_config_dir.'/dein.toml', {'lazy': 0})
   call dein#load_toml(s:dein_config_dir.'/dein_lazy.toml', {'lazy': 1})
-=======
-  call dein#load_toml(s:dein_config_dir.'/dein.toml')
->>>>>>> e3bbb644ab3d6e296fcd41c7de9a425cf57304ec
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -56,7 +52,9 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('mikoto2000/buffer_selector.vim')
   noremap <Space><Space> <Esc>:call buffer_selector#OpenBufferSelector()<Enter>
 
-  " Required:
+  call map(dein#check_clean(), "delete(v:val,'rf')")
+
+
   call dein#end()
   call dein#save_state()
 endif
