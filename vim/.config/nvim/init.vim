@@ -2,7 +2,7 @@
 " VimでJavaScript開発環境を作成 https://qiita.com/KazuakiM/items/21054883b57f895875c0
 
 " Variables 変数たち
-" let s:envHome      = ! exists('s:envHome')      ? $HOME       : s:envHome
+let s:envHome      = ! exists('s:envHome')      ? $HOME       : s:envHome
 
 "dein Scripts-----------------------------
 if &compatible
@@ -21,7 +21,8 @@ if dein#load_state(s:dein_cache_dir)
 " Let dein manage dein
   call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  call dein#load_toml('$HOME/.vim/dein.toml')
+  call dein#load_toml(s:dein_config_dir.'/dein.toml', {'lazy': 0})
+  call dein#load_toml(s:dein_config_dir.'/dein_lazy.toml', {'lazy': 1})
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
