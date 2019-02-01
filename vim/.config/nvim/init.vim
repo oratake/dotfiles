@@ -194,45 +194,48 @@ nmap <silent><expr><TAB>  neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnip
 imap <silent><expr><C-x>  MyNeoCompleteCr()
 imap <silent><expr><CR>   MyNeoCompleteCr()
 nmap <silent><S-TAB> <ESC>a<C-r>=neosnippet#commands#_clear_markers()<CR>
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-"neocomplete.vim
-let g:neocomplete#auto_completion_start_length = 3
-let g:neocomplete#data_directory               = $HOME .'/.vim/neocomplete.vim'
-let g:neocomplete#delimiter_patterns           = {
-\    'javascript': ['.'],
-\    'php':        ['->', '::', '\'],
-\    'ruby':       ['::']
-\}
-let g:neocomplete#enable_at_startup         = 1
-let g:neocomplete#enable_auto_close_preview = 1
-let g:neocomplete#enable_auto_delimiter     = 1
-let g:neocomplete#enable_auto_select        = 0
-let g:neocomplete#enable_fuzzy_completion   = 0
-let g:neocomplete#enable_smart_case         = 1
-let g:neocomplete#keyword_patterns          = {'_': '\h\w*'}
-let g:neocomplete#lock_buffer_name_pattern  = '\.log\|.*quickrun.*\|.jax'
-let g:neocomplete#max_keyword_width         = 30
-let g:neocomplete#max_list                  = 8
-let g:neocomplete#min_keyword_length        = 3
-let g:neocomplete#sources                   = {
-\    '_':          ['neosnippet', 'file',               'buffer'],
-\    'css':        ['neosnippet',         'dictionary', 'buffer'],
-\    'html':       ['neosnippet', 'file', 'dictionary', 'buffer'],
-\    'javascript': ['neosnippet', 'file', 'dictionary', 'buffer'],
-\    'php':        ['neosnippet', 'file', 'dictionary', 'buffer']
-\}
-let g:neocomplete#sources#buffer#cache_limit_size  = 50000
-let g:neocomplete#sources#buffer#disabled_pattern  = '\.log\|\.jax'
-let g:neocomplete#sources#buffer#max_keyword_width = 30
-let g:neocomplete#sources#dictionary#dictionaries  = {
-\    '_':          '',
-\    'css':        $HOME . '/.vim/dict/css.dict',
-\    'html':       $HOME . '/.vim/dict/html.dict',
-\    'javascript': $HOME . '/.vim/dict/javascript.dict',
-\    'php':        $HOME . '/.vim/dict/php.dict'
-\}
-let g:neocomplete#use_vimproc = 1
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
+
+
+"  "neocomplete.vim
+"  let g:neocomplete#auto_completion_start_length = 3
+"  let g:neocomplete#data_directory               = $HOME .'/.vim/neocomplete.vim'
+"  let g:neocomplete#delimiter_patterns           = {
+"  \    'javascript': ['.'],
+"  \    'php':        ['->', '::', '\'],
+"  \    'ruby':       ['::']
+"  \}
+"  let g:neocomplete#enable_at_startup         = 1
+"  let g:neocomplete#enable_auto_close_preview = 1
+"  let g:neocomplete#enable_auto_delimiter     = 1
+"  let g:neocomplete#enable_auto_select        = 0
+"  let g:neocomplete#enable_fuzzy_completion   = 0
+"  let g:neocomplete#enable_smart_case         = 1
+"  let g:neocomplete#keyword_patterns          = {'_': '\h\w*'}
+"  let g:neocomplete#lock_buffer_name_pattern  = '\.log\|.*quickrun.*\|.jax'
+"  let g:neocomplete#max_keyword_width         = 30
+"  let g:neocomplete#max_list                  = 8
+"  let g:neocomplete#min_keyword_length        = 3
+"  let g:neocomplete#sources                   = {
+"  \    '_':          ['neosnippet', 'file',               'buffer'],
+"  \    'css':        ['neosnippet',         'dictionary', 'buffer'],
+"  \    'html':       ['neosnippet', 'file', 'dictionary', 'buffer'],
+"  \    'javascript': ['neosnippet', 'file', 'dictionary', 'buffer'],
+"  \    'php':        ['neosnippet', 'file', 'dictionary', 'buffer']
+"  \}
+"  let g:neocomplete#sources#buffer#cache_limit_size  = 50000
+"  let g:neocomplete#sources#buffer#disabled_pattern  = '\.log\|\.jax'
+"  let g:neocomplete#sources#buffer#max_keyword_width = 30
+"  let g:neocomplete#sources#dictionary#dictionaries  = {
+"  \    '_':          '',
+"  \    'css':        $HOME . '/.vim/dict/css.dict',
+"  \    'html':       $HOME . '/.vim/dict/html.dict',
+"  \    'javascript': $HOME . '/.vim/dict/javascript.dict',
+"  \    'php':        $HOME . '/.vim/dict/php.dict'
+"  \}
+"  let g:neocomplete#use_vimproc = 1
+
 "neoinclude.vim
 let g:neoinclude#exts          = {'php': ['php', 'inc', 'tpl']}
 let g:neoinclude#max_processes = 5
