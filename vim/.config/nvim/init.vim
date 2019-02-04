@@ -1,13 +1,24 @@
 " 参照各所
 " VimでJavaScript開発環境を作成 https://qiita.com/KazuakiM/items/21054883b57f895875c0
 
-" Variables 変数たち
-let s:envHome      = ! exists('s:envHome')      ? $HOME       : s:envHome
+" dein.vimによるプラグイン管理 Qiita （現行はこちらを使用したい） https://qiita.com/kawaz/items/ee725f6214f91337b42b
+
 
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
+
+" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+" dein settings {{{
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+" let s:dein
+" }}}
 
 " dein.vimのディレクトリ
 set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
@@ -71,190 +82,6 @@ endif
 "End dein Scripts-------------------------
 
 
-" マニュアルをネットワークを介さず参照
-" vim-ref {{{
-inoremap <silent><C-k> <C-o>:call<Space>ref#K('normal')<CR><ESC>
-nmap <silent>K <Plug>(ref-keyword)
-let g:ref_no_default_key_mappings = 1
-let g:ref_cache_dir               = $HOME . '/.vim/vim-ref/cache'
-let g:ref_detect_filetype         = {
-\    'css':        'phpmanual',
-\    'html':       ['phpmanual',  'javascript', 'jquery'],
-\    'javascript': ['javascript', 'jquery'],
-\    'php':        ['phpmanual',  'javascript', 'jquery']
-\}
-let g:ref_javascript_doc_path = $HOME . '/.vim/dein.vim/repos/github.com/tokuhirom/jsref/htdocs'
-let g:ref_jquery_doc_path     = $HOME . '/.vim/dein.vim/repos/github.com/mustardamus/jqapi'
-let g:ref_phpmanual_path      = $HOME . '/.vim/vim-ref/php-chunked-xhtml'
-let g:ref_use_cache           = 1
-let g:ref_use_vimproc         = 1
-"}}
-
-
-" vim-qfstatusline {{{
-function! MyStatuslineSyntax() abort "{{{
-    let l:ret = qfstatusline#Update()
-    if 0 < len(l:ret)
-        if s:lineUpdate is# 0
-            highlight StatusLine cterm=NONE gui=NONE ctermfg=Black guifg=Black ctermbg=Magenta guibg=Magenta
-            let s:lineUpdate = 1
-        endif
-    elseif s:lineUpdate is# 1
-        highlight StatusLine cterm=NONE gui=NONE ctermfg=Black guifg=Black ctermbg=Grey guibg=Grey
-        let s:lineUpdate = 0
-    endif
-    return l:ret
-endfunction "}}}
-
-function! MyStatuslinePaste() abort "{{{
-    if &paste is# 1
-        return '(paste)'
-    endif
-    return ''
-endfunction "}}}
-
-let g:Qfstatusline#UpdateCmd = function('MyStatuslineSyntax')
-set laststatus=2
-set cmdheight=1
-set statusline=\ %t\ %{MyStatuslinePaste()}\ %m\ %r\ %h\ %w\ %q\ %{MyStatuslineSyntax()}%=%l/%L\ \|\ %Y\ \|\ %{&fileformat}\ \|\ %{&fileencoding}\ 
-"}}}
-
-" vim-quickrun {{{
-function! EslintFix() abort "{{{
-    let l:quickrun_config_backup                  = g:quickrun_config['javascript']
-    let g:quickrun_config['javascript']['cmdopt'] = l:quickrun_config_backup['cmdopt'] .' --config '. $HOME .'/.eslintrc.js --fix'
-    let g:quickrun_config['javascript']['runner'] = 'system'
-
-    QuickRun
-
-    let g:quickrun_config['javascript'] = l:quickrun_config_backup
-endfunction "}}}
-
-nnoremap <Leader>run  :<C-u>QuickRun<CR>
-nnoremap <Leader>es   :<C-u>call<Space>EslintFix()<CR>
-let s:quickrun_config_javascript = {
-\    'command':     'eslint',
-\    'cmdopt':      '--cache --cache-location ' . s:envHome . '/.cache/eslint/.eslintcache --format compact --max-warnings 1 --no-color --no-ignore --quiet',
-\    'errorformat': '%E%f: line %l\, col %c\, Error - %m,%W%f: line %l\, col %c\, Warning - %m,%-G%.%#',
-\    'exec':        '%c %o %s:p'
-\}
-let g:quickrun_config = {
-\    '_': {
-\        'hook/close_buffer/enable_empty_data': 1,
-\        'hook/close_buffer/enable_failure':    1,
-\        'outputter':                           'multi:buffer:quickfix',
-\        'outputter/buffer/close_on_empty':     1,
-\        'outputter/buffer/split':              ':botright',
-\        'runner':                              'vimproc',
-\        'runner/vimproc/updatetime':           600
-\    },
-\    'javascript': {
-\        'command':     s:quickrun_config_javascript['command'],
-\        'cmdopt':      s:quickrun_config_javascript['cmdopt'] . ' --config ' . s:envHome . '/.eslintrc.js',
-\        'errorformat': s:quickrun_config_javascript['errorformat'],
-\        'exec':        s:quickrun_config_javascript['exec']
-\    },
-\    'javascript/watchdogs_checker': {
-\        'type': 'watchdogs_checker/javascript'
-\    },
-\    'watchdogs_checker/_': {
-\        'hook/close_quickfix/enable_exit':        1,
-\        'hook/back_window/enable_exit':           0,
-\        'hook/back_window/priority_exit':         1,
-\        'hook/qfstatusline_update/enable_exit':   1,
-\        'hook/qfstatusline_update/priority_exit': 2,
-\        'outputter/quickfix/open_cmd':            ''
-\    },
-\    'watchdogs_checker/javascript': {
-\        'command':     s:quickrun_config_javascript['command'],
-\        'cmdopt':      s:quickrun_config_javascript['cmdopt'] . ' --config ' . s:envHome . '/.eslintrc.limit.js',
-\        'errorformat': s:quickrun_config_javascript['errorformat'],
-\        'exec':        s:quickrun_config_javascript['exec']
-\    }
-\}
-unlet s:quickrun_config_javascript
-"}}}
-
-" shabadou.vim
-" vim-watchdogs {{{
-let g:watchdogs_check_BufWritePost_enable  = 1
-let g:watchdogs_check_BufWritePost_enables = {'vim': 0}
-let g:watchdogs_check_CursorHold_enable    = 1
-let g:watchdogs_check_CursorHold_enables   = {'vim': 0}
-"}}}
-
-" neosnippet-snippets
-" neosnippet.vim
-" neoinclude.vim
-" neocomplete.vim {{{
-imap <silent><expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" neosnippet.vim
-smap <silent><expr><TAB>  neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-nmap <silent><expr><TAB>  neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <silent><expr><C-x>  MyNeoCompleteCr()
-imap <silent><expr><CR>   MyNeoCompleteCr()
-nmap <silent><S-TAB> <ESC>a<C-r>=neosnippet#commands#_clear_markers()<CR>
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-
-
-"  "neocomplete.vim
-"  let g:neocomplete#auto_completion_start_length = 3
-"  let g:neocomplete#data_directory               = $HOME .'/.vim/neocomplete.vim'
-"  let g:neocomplete#delimiter_patterns           = {
-"  \    'javascript': ['.'],
-"  \    'php':        ['->', '::', '\'],
-"  \    'ruby':       ['::']
-"  \}
-"  let g:neocomplete#enable_at_startup         = 1
-"  let g:neocomplete#enable_auto_close_preview = 1
-"  let g:neocomplete#enable_auto_delimiter     = 1
-"  let g:neocomplete#enable_auto_select        = 0
-"  let g:neocomplete#enable_fuzzy_completion   = 0
-"  let g:neocomplete#enable_smart_case         = 1
-"  let g:neocomplete#keyword_patterns          = {'_': '\h\w*'}
-"  let g:neocomplete#lock_buffer_name_pattern  = '\.log\|.*quickrun.*\|.jax'
-"  let g:neocomplete#max_keyword_width         = 30
-"  let g:neocomplete#max_list                  = 8
-"  let g:neocomplete#min_keyword_length        = 3
-"  let g:neocomplete#sources                   = {
-"  \    '_':          ['neosnippet', 'file',               'buffer'],
-"  \    'css':        ['neosnippet',         'dictionary', 'buffer'],
-"  \    'html':       ['neosnippet', 'file', 'dictionary', 'buffer'],
-"  \    'javascript': ['neosnippet', 'file', 'dictionary', 'buffer'],
-"  \    'php':        ['neosnippet', 'file', 'dictionary', 'buffer']
-"  \}
-"  let g:neocomplete#sources#buffer#cache_limit_size  = 50000
-"  let g:neocomplete#sources#buffer#disabled_pattern  = '\.log\|\.jax'
-"  let g:neocomplete#sources#buffer#max_keyword_width = 30
-"  let g:neocomplete#sources#dictionary#dictionaries  = {
-"  \    '_':          '',
-"  \    'css':        $HOME . '/.vim/dict/css.dict',
-"  \    'html':       $HOME . '/.vim/dict/html.dict',
-"  \    'javascript': $HOME . '/.vim/dict/javascript.dict',
-"  \    'php':        $HOME . '/.vim/dict/php.dict'
-"  \}
-"  let g:neocomplete#use_vimproc = 1
-
-"neoinclude.vim
-let g:neoinclude#exts          = {'php': ['php', 'inc', 'tpl']}
-let g:neoinclude#max_processes = 5
-"neosnippet.vim
-let g:neosnippet#data_directory                = $HOME . '/.vim/neosnippet.vim'
-let g:neosnippet#disable_runtime_snippets      = {'_' : 1}
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory            = $HOME . '/.vim/dein.vim/repos/github.com/KazuakiM/neosnippet-snippets/neosnippets'
-function! MyNeoCompleteCr() abort "{{{
-    if pumvisible() is# 0
-        return "\<CR>X\<C-h>"
-    elseif neosnippet#expandable_or_jumpable()
-        return "\<Plug>(neosnippet_expand_or_jump)"
-    endif
-    return "\<Left>\<Right>"
-endfunction "}}}
-"}}}
-
-
 if has("syntax")
   syntax on
 endif
@@ -269,6 +96,8 @@ set mouse=a
 set confirm " 保存されていないファイルは終了時に保存確認
 set hidden " 保存されていなくても別ファイルが開ける
 set noswapfile " スワップファイルを作らない
+set autoread " 編集中ファイルに変更があれば自動で読み直す
+set showcmd " 入力中のコマンドをステータスに表示
 
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
@@ -278,9 +107,12 @@ set title " ターミナルのタイトル表示
 
 " 表示系
 
-set laststatus=2 " ステータスバーを常に表示
-set laststatus=2 " メッセージ行を2行確保
+set laststatus=2 " メッセージ行を2行確保(常に表示
 set cursorline " 行のハイライト
+" set cursorcolumn " 列のハイライト
+" highlight CursorColumn ctermbg=Gray
+" highlight CursorColumn ctermfg=Green
+set virtualedit=onemore " 行末の1文字先までカーソルを移動できるように
 set list " 不可視文字可視化
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:« " 不可視文字指定
 
@@ -297,6 +129,8 @@ set smartindent " 複数行貼り付けがおかしくなるかも。:set paste 
 " 検索/置換
 
 set hlsearch " 検索文字列のハイライト
+set ignorecase " 全て小文字なら大小文字区別なく検索
+set smartcase " 
 
 " ビープ停止
 
@@ -307,9 +141,9 @@ set noerrorbells
 " キーバインド
 " --------------------
 
-inoremap <silent> jj <ESC>
-noremap <C-h> 0
-noremap <C-l> $
+inoremap <silent> jj <ESC> " 挿入モードからjj連打でesc
+noremap <C-h> 0 " 行頭
+noremap <C-l> $ " 行末
 
 " 括弧補完
 inoremap { {}<Left>
