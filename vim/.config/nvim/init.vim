@@ -1,6 +1,5 @@
 " 参照各所
 " VimでJavaScript開発環境を作成 https://qiita.com/KazuakiM/items/21054883b57f895875c0
-
 " dein.vimによるプラグイン管理 Qiita （現行はこちらを使用したい） https://qiita.com/kawaz/items/ee725f6214f91337b42b
 
 
@@ -34,6 +33,7 @@ if dein#load_state(s:dein_cache_dir)
 
   call dein#load_toml(s:dein_config_dir.'/dein.toml', {'lazy': 0})
   call dein#load_toml(s:dein_config_dir.'/dein_lazy.toml', {'lazy': 1})
+  
 
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
@@ -77,6 +77,8 @@ endif
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
+elseif !has('nvim')
+  call dein#load_toml(s:dein_config_dir.'/dein_no_nvim.toml', {'lazy': 0})
 endif
 
 "End dein Scripts-------------------------
@@ -130,7 +132,7 @@ set smartindent " 複数行貼り付けがおかしくなるかも。:set paste 
 
 set hlsearch " 検索文字列のハイライト
 set ignorecase " 全て小文字なら大小文字区別なく検索
-set smartcase " 
+set smartcase " 大文字があれば区別して検索
 
 " ビープ停止
 
