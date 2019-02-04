@@ -101,6 +101,10 @@ set noswapfile " スワップファイルを作らない
 set autoread " 編集中ファイルに変更があれば自動で読み直す
 set showcmd " 入力中のコマンドをステータスに表示
 
+" クリップボードとヤンクをリンク
+set clipboard&
+set clipboard^=unnamedplus
+
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
 
@@ -146,6 +150,12 @@ set noerrorbells
 inoremap <silent> jj <ESC> " 挿入モードからjj連打でesc
 noremap <C-h> 0 " 行頭
 noremap <C-l> $ " 行末
+
+" バッファ移動
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " 括弧補完
 inoremap { {}<Left>
