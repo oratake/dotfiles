@@ -124,8 +124,8 @@ set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:« " 不可視�
 
 " タブ,インデント関係
 
-set noexpandtab " ハードタブ
-" set expandtab " ソフトタブ
+" set noexpandtab " ハードタブ
+set expandtab " ソフトタブ
 set tabstop=2 " tab文字の表示文字数
 set shiftwidth=2 " 自動で挿入するインデントの文字数
 set softtabstop=0 " tabで挿入する文字数 無指定でts準拠
