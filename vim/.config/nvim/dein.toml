@@ -67,9 +67,13 @@ autocmd FileType defx call s:defx_my_settings()
   endfunction
 
   " ちょびっと開く
+  nnoremap fi :Defx `expand('%:p:h')` -search=`expand('%:p')` -toggle -show-ignored-files<CR>
   nnoremap fe :Defx -split=vertical -winwidth=35 -toggle -show-ignored-files<CR>
 " defx Config: end -------------------
 '''
 
 [[plugins]]
 repo = 'kana/vim-submode'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'

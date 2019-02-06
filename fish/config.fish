@@ -8,7 +8,7 @@ echo "Your env is "(uname)"."
 # https://github.com/rcmdnk/trash
 if [ -d /usr/local/bin/trash ]
 else
-  echo '[CAUTION] It does not have "trash.sh"
+  echo '[CAUTION] You do not have "trash.sh"
 Install this sh: https://github.com/rcmdnk/trash'
 end
 
