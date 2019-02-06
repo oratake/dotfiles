@@ -16,8 +16,6 @@ hook_add = '''
 autocmd FileType defx call s:defx_my_settings()
   function! s:defx_my_settings() abort
     " Define mappings
-     nnoremap fe :Defx -split -winwidth=35 -toggle -no-quit<CR>
-
      nnoremap <silent><buffer><expr> <CR>
     \ defx#do_action('open')
      nnoremap <silent><buffer><expr> c
@@ -67,5 +65,11 @@ autocmd FileType defx call s:defx_my_settings()
      nnoremap <silent><buffer><expr> cd
     \ defx#do_action('change_vim_cwd')
   endfunction
+
+  " ちょびっと開く
+  nnoremap fe :Defx -split=vertical -winwidth=35 -toggle -show-ignored-files<CR>
 " defx Config: end -------------------
 '''
+
+[[plugins]]
+repo = 'kana/vim-submode'
