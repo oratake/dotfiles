@@ -211,3 +211,12 @@ call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+
+
+
+
+" test
+" if has('wsl')
+source $XDG_CONFIG_HOME/nvim/init_local.vim
+" endif
