@@ -102,8 +102,25 @@ set autoread " 編集中ファイルに変更があれば自動で読み直す
 set showcmd " 入力中のコマンドをステータスに表示
 
 " クリップボードとヤンクをリンク
-set clipboard&
-set clipboard^=unnamedplus
+" set clipboard&
+" set clipboard^=unnamedplus
+set clipboard+=unnamed
+
+" クリップボード WSLのみ
+if system('uname -a | grep Microsoft') != ""
+  let g:clipboard = {
+    \ 'name': 'myClipboard',
+    \ 'copy': {
+    \   '+': 'win32yank.exe -i',
+    \   '*': 'win32yank.exe -i',
+    \ },
+    \ 'paste': {
+    \   '+': 'win32yank.exe -o',
+    \   '*': 'win32yank.exe -o',
+    \ },
+    \ 'cache_enabled': 1,
+    \}
+endif
 
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
@@ -147,9 +164,11 @@ set noerrorbells
 " キーバインド
 " --------------------
 
-inoremap <silent> jj <ESC> " 挿入モードからjj連打でesc
-noremap H 0 " 行頭
-noremap L $ " 行末
+" 挿入モードからjj連打でesc
+inoremap <silent> jj <ESC>
+" 行頭行末移動変更
+noremap H 0
+noremap L $
 
 " バッファ移動
 nnoremap <silent> [b :bprevious<CR>
