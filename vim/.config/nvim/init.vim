@@ -135,7 +135,8 @@ set cursorline " 行のハイライト
 " set cursorcolumn " 列のハイライト
 " highlight CursorColumn ctermbg=Gray
 " highlight CursorColumn ctermfg=Green
-set virtualedit=onemore " 行末の1文字先までカーソルを移動できるように
+" set virtualedit=onemore " 行末の1文字先までカーソルを移動できるように
+set virtualedit=block
 set list " 不可視文字可視化
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:« " 不可視文字指定
 
@@ -146,7 +147,7 @@ set expandtab " ソフトタブ
 set tabstop=2 " tab文字の表示文字数
 set shiftwidth=2 " 自動で挿入するインデントの文字数
 set softtabstop=0 " tabで挿入する文字数 無指定でts準拠
-" :set ts= sw= sts= でコマンド設定可
+" set expandtab ts= sw= sts= で一気に設定可
 set smartindent " 複数行貼り付けがおかしくなるかも。:set paste のあとペースト。
 
 " 検索/置換
