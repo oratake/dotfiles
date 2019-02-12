@@ -1,0 +1,34 @@
+{
+  "python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": false,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrap": "on",
+  "git.ignoreMissingGitWarning": true,
+  "sync.gist": "f118cefdb0d8c297a2190c71361971f9",
+  "sync.autoUpload": true,
+  "sync.autoDownload": true,
+  "easysass.formats": [
+    {
+      "format": "expanded",
+      "extension": ".css"
+    }
+  ],
+  "easysass.targetDir": "docs/css",
+  "scss.lint.duplicateProperties": "warning",
+  "scss.lint.zeroUnits": "warning",
+  "html-css-class-completion.enableEmmetSupport": true,
+  "easysass.compileAfterSave": false,
+  "editor.fontFamily": "Cica,\"Ricty Diminished\", Consolas, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "workbench.colorTheme": "Kimbie Dark",
+  "terminal.explorerKind": "external",
+  "terminal.external.linuxExec": "",
+  "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\bash.exe",
+  "terminal.external.osxExec": "iTerm2.app",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+  "terminal.integrated.confirmOnExit": true,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\""
+}
