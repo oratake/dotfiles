@@ -1,8 +1,9 @@
 {
-  "python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
+	// Path (set in syncLocalsettings.json)
+	"php.validate.executablePath": "C:/xampp/php/php.exe",
+	"python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
+	"editor.fontSize": 18,
   "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "editor.insertSpaces": false,
   "editor.renderWhitespace": "all",
   "editor.wordWrap": "on",
   "git.ignoreMissingGitWarning": true,
@@ -21,8 +22,16 @@
   "html-css-class-completion.enableEmmetSupport": true,
   "easysass.compileAfterSave": false,
   "editor.fontFamily": "Cica,\"Ricty Diminished\", Consolas, 'Courier New', monospace",
-  "editor.fontSize": 16,
-  "workbench.colorTheme": "Kimbie Dark",
+
+  // 配色参考 http://www.atmarkit.co.jp/ait/articles/1709/15/news027_4.html
+  "workbench.colorTheme": "Japanesque Dark (Old version)",
+
+  "workbench.colorCustomizations": {
+    "[Japanesque Dark (Old version)]": {
+			"editorWhitespace.foreground": "#888"
+		}
+  },
+
   "terminal.explorerKind": "external",
   "terminal.external.linuxExec": "",
   "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\bash.exe",
@@ -30,5 +39,24 @@
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
   "terminal.integrated.confirmOnExit": true,
   "terminal.integrated.fontSize": 16,
-  "terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\""
+	"terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\"",
+	
+	// Vim Keybind
+	"vim.insertModeKeyBindings": [
+		{
+			"before": ["j", "j"],
+			"after":["<Esc>"] 
+		}
+	],
+	"vim.normalModeKeyBindings": [
+		{
+			"before": ["0"],
+			"after": ["H"]
+		},
+		{
+			"before": ["$"],
+			"after": ["L"]
+		}
+  ],
+  "editor.detectIndentation": false
 }
