@@ -1,0 +1,34 @@
+{
+	"ignoreUploadFiles": [
+		"projects.json",
+		"projects_cache_vscode.json",
+		"projects_cache_git.json",
+		"projects_cache_svn.json",
+		"gpm_projects.json",
+		"gpm-recentItems.json"
+	],
+	"ignoreUploadFolders": [
+		"workspaceStorage"
+	],
+	"ignoreExtensions": [],
+	"gistDescription": "Visual Studio Code Settings Sync Gist",
+	"version": 324,
+	"token": "7c44b6c2fd300a97e3ac30867b794f418469ee69",
+	"downloadPublicGist": false,
+	"supportedFileExtensions": [
+		"json",
+		"code-snippets"
+	],
+	"openTokenLink": true,
+	"disableUpdateMessage": false,
+	"lastUpload": "2019-02-12T01:06:44.441Z",
+	"lastDownload": "2019-02-09T04:32:30.319Z",
+	"githubEnterpriseUrl": null,
+	"askGistName": false,
+	"customFiles": {},
+	"hostName": null,
+	"replaceCodeSettings": {
+		"editor.fontSize": 18,
+		"php.validate.executablePath": "C:\\xampp\\php\\php.exe"
+	}
+}

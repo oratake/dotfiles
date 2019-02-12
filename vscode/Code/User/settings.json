@@ -41,7 +41,8 @@
   "terminal.integrated.fontSize": 16,
 	"terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\"",
 	
-	// Vim Keybind
+  // Vim Keybind
+  "vim.useSystemClipboard": true,
 	"vim.insertModeKeyBindings": [
 		{
 			"before": ["j", "j"],
@@ -50,11 +51,11 @@
 	],
 	"vim.normalModeKeyBindings": [
 		{
-			"before": ["0"],
+			"before": ["<Home>"],
 			"after": ["H"]
 		},
 		{
-			"before": ["$"],
+			"before": ["<End>"],
 			"after": ["L"]
 		}
   ],
