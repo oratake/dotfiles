@@ -4,28 +4,34 @@
 
 echo "Your env is "(uname)"."
 
-# ゴミ箱($HOME/.Trash)
-# https://github.com/rcmdnk/trash
-if [ -d /usr/local/bin/trash ]
-else
-  echo '[CAUTION] You do not have "trash.sh"
-Install this sh: https://github.com/rcmdnk/trash'
-end
-
 switch (uname -a)
   ## Windows10 WSL Ubuntu()設定
   case '*Linux*Microsoft*'
+    # Vagrant関係
+    set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
+    set -x VAGRANT_WSL_WINDOWS_ACCESS_USER "User"
+    
+    set PATH "/mnt/c/Program Files/Oracle/VirtualBox" $PATH
+
+    #alias
     alias open='explorer.exe'
     alias o='explorer.exe .'
 
-    ## ゴミ箱
+    # ゴミ箱($HOME/.Trash)
+    # https://github.com/rcmdnk/trash
+    if [ -d /usr/local/bin/trash ]
+    else
+      echo '[CAUTION] You do not have "trash.sh"
+    Install this sh: https://github.com/rcmdnk/trash'
+    end
+
     if [ -d $HOME/.Trash ]
       alias rm='mv --backup=numbered --target-directory=$HOME/.Trash'
     else
       echo 'ERROR: TrashBox(.Trash) is not exist.'
     end
 
-  ## OSX(Darwin)設定
+  # OSX(Darwin)設定
   case '*Darwin*'
     alias rm='trash'
 end
