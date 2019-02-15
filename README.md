@@ -12,6 +12,13 @@ like...
 ## Usage
 RECOMMEND: Do not copy all. Pickup you needed.
 
+### Version Management Policy
+
+|LANG|cmd|
+|:--|:--|
+|Python|pyenv|
+|Node(npm)|n|
+
 ## OUTDATED
 I do not use and update these for now.
 - zsh
