@@ -1,0 +1,9 @@
+{
+  "token": "7c44b6c2fd300a97e3ac30867b794f418469ee69"
+  "_comment": "以下セッティング",
+  "replaceCodeSettings": {
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "php.validate.executablePath": "C:\\xampp\\php\\php-win.exe"
+  }
+}
