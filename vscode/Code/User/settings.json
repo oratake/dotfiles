@@ -1,6 +1,7 @@
 {
   "_comment": "Path (set in syncLocalsettings.json)",
-  "php.validate.executablePath": "C:/xampp/php/php.exe",
+  "php.validate.executablePath": "C:\\xampp\\php\\php-win.exe",
+  "php.executablePath": "C:\\xampp\\php\\php-win.exe",
   "python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
   "editor.fontSize": 18,
   "editor.tabSize": 2,
@@ -9,7 +10,6 @@
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
   "git.ignoreMissingGitWarning": true,
-  "sync.gist": "f118cefdb0d8c297a2190c71361971f9",
   "_comment": "dd20c4997200d932b999e7e79f2dafbca50c231d",
   "sync.autoUpload": true,
   "sync.autoDownload": true,
@@ -63,5 +63,7 @@
     { "before": [ "H" ], "after": [ "^" ] },
     { "before": [ "L" ], "after": [ "$" ] }
   ],
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "gitlens.settings.mode": "advanced",
+  "sync.gist": "f118cefdb0d8c297a2190c71361971f9"
 }
