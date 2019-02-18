@@ -16,6 +16,8 @@ RECOMMEND: Do not copy all. Pickup you needed.
 
 |LANG|cmd|
 |:--|:--|
+|PHP|phpenv|
+|Ruby|rbenv|
 |Python|pyenv|
 |Node(npm)|n|
 
