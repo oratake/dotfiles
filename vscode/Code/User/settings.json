@@ -1,7 +1,9 @@
 {
+
+
+
   "_comment": "Path (set in syncLocalsettings.json)",
-  "php.validate.executablePath": "C:\\xampp\\php\\php-win.exe",
-  "php.executablePath": "C:\\xampp\\php\\php-win.exe",
+  "php.validate.executablePath": "C:/xampp/php/php.exe",
   "python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
   "editor.fontSize": 18,
   "editor.tabSize": 2,
@@ -45,7 +47,7 @@
   "terminal.external.osxExec": "iTerm2.app",
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
   "terminal.integrated.confirmOnExit": true,
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 18,
   "terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\"",
   "_comment": "Vim Settings",
   "vim.hlsearch": true,
@@ -65,5 +67,9 @@
   ],
   "editor.detectIndentation": false,
   "gitlens.settings.mode": "advanced",
-  "sync.gist": "f118cefdb0d8c297a2190c71361971f9"
+  "sync.gist": "f118cefdb0d8c297a2190c71361971f9",
+
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": true,
 }

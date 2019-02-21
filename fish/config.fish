@@ -5,8 +5,13 @@
 echo "Your env is "(uname)"."
 
 switch (uname -a)
-  ## Windows10 WSL Ubuntu()設定
+  ## Windows10 WSL Ubuntu 設定
   case '*Linux*Microsoft*'
+    # WSL GUI環境設定
+    # https://qiita.com/MERIK/items/ef4ecf7a51f89c403e94
+    set -x DISPLAY :0.0
+    set -x LIBGL_ALWAYS_INDIRECT 1
+
     # Vagrant関係
     set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
     set -x VAGRANT_WSL_WINDOWS_ACCESS_USER "User"

@@ -140,6 +140,12 @@ set virtualedit=block
 set list " 不可視文字可視化
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:« " 不可視文字指定
 
+" エンコーディング,改行コード,eof,eol関係
+set fileencodings=utf-8,sjis,cp932
+set fileformats=unix,dos,mac
+set nofixendofline
+set noeol " eol無し
+
 " タブ,インデント関係
 
 " set noexpandtab " ハードタブ
