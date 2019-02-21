@@ -77,3 +77,6 @@ repo = 'kana/vim-submode'
 
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
