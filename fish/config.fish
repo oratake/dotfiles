@@ -64,6 +64,12 @@ alias vv='vim ~/.config/nvim/'
 
 
 # プロンプト設定
+# bobthefish
+set -g theme_display_git yes
+set -g theme_display_git_dirty yes
+set -g theme_display_git_untracked yes
+
+#
 # function fish_prompt
 #  ~/powerline-shell.py $status --shell bare ^/dev/null
 # end

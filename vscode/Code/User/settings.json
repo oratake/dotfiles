@@ -3,8 +3,10 @@
 
 
   "_comment": "Path (set in syncLocalsettings.json)",
+  "git.path": null,
   "php.validate.executablePath": "C:/xampp/php/php.exe",
   "python.pythonPath": "C:\\Users\\User\\Anaconda3\\pythonw.exe",
+
   "editor.fontSize": 18,
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
@@ -72,4 +74,5 @@
   "files.trimTrailingWhitespace": false,
   "files.insertFinalNewline": false,
   "files.trimFinalNewlines": true,
+  "git.showPushSuccessNotification": true,
 }
