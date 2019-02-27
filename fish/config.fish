@@ -41,7 +41,10 @@ switch (uname -a)
     alias rm='trash'
 end
 
-# 環境変数
+# --------------------
+# env
+# --------------------
+
 # 本来はlocalな.fishとかに書くもの
 set -x XDG_CONFIG_HOME $HOME"/.config"
 set -x XDG_CACHE_HOME $HOME"/.cache"
@@ -68,11 +71,3 @@ alias vv='vim ~/.config/nvim/'
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
-
-#
-# function fish_prompt
-#  ~/powerline-shell.py $status --shell bare ^/dev/null
-# end
-
-# set fish_function_path $fish_function_path "/usr/local/lib/python2.7/dist-packages/powerline/bindings/fish"
-# powerline-setup
