@@ -63,8 +63,18 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('mikoto2000/buffer_selector.vim')
   noremap <Space><Space> <Esc>:call buffer_selector#OpenBufferSelector()<Enter>
 
-  call map(dein#check_clean(), "delete(v:val,'rf')")
+" call dein#add('autozimu/LanguageClient-neovim', {
+"     \ 'rev': 'next',
+"     \ 'build': 'bash install.sh',
+"     \ })
+" let g:LanguageClient_serverCommands = {
+"     \ 'php': [''],
+"     \ }
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
+  call map(dein#check_clean(), "delete(v:val,'rf')")
 
   call dein#end()
   call dein#save_state()
@@ -171,6 +181,8 @@ set noerrorbells
 " キーバインド
 " --------------------
 
+let mapleader = "\<Space>"
+
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>
 " 行頭行末移動変更
@@ -238,6 +250,36 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
+" phpactor キーマップ : https://qiita.com/cyrt/items/ff5edd392b3f41dd6e10
+" 画面を分割して定義元へのジャンプ
+function! DefinitionJumpWithPhpactor()
+    split
+    call phpactor#GotoDefinition()
+endfunction
+
+" useの補完
+nmap <silent><Leader>u      :<C-u>call phpactor#UseAdd()<CR>
+" コンテキストメニューの起動(カーソル下のクラスやメンバに対して実行可能な選択肢を表示してくれます)
+nmap <silent><Leader>mm     :<C-u>call phpactor#ContextMenu()<CR>
+" ナビゲーションメニューの起動(クラスの参照元を列挙したり、他ファイルへのジャンプなど)
+nmap <silent><Leader>nn     :<C-u>call phpactor#Navigate()<CR>
+" カーソル下のクラスやメンバの定義元にジャンプ
+nmap <silent><Leader>o      :<C-u>call phpactor#GotoDefinition()<CR>
+" 編集中のクラスに対し各種の変更を加える(コンストラクタ補完、インタフェース実装など)
+nmap <silent><Leader>tt     :<C-u>call phpactor#Transform()<CR>
+" 新しいクラスを生成する(編集中のファイルに)
+nmap <silent><Leader>cc     :<C-u>call phpactor#ClassNew()<CR>
+" 選択した範囲を変数に抽出する
+nmap <silent><Leader>ee     :<C-u>call phpactor#ExtractExpression(v:false)<CR>
+" 選択した範囲を変数に抽出する
+vmap <silent><Leader>ee     :<C-u>call phpactor#ExtractExpression(v:true)<CR>
+" 選択した範囲を新たなメソッドとして抽出する
+vmap <silent><Leader>em     :<C-u>call phpactor#ExtractMethod()<CR>
+" split → jump
+nmap <silent><C-w><Leader>o :<C-u>call DefinitionJumpWithPhpactor()<CR>
+" カーソル下のクラスや変数の情報を表示する
+" 他のエディタで、マウスカーソルをおいたときに表示されるポップアップなどに相当
+vmap <silent><Leader>hh     :<C-u>call phpactor#Hover()<CR>
 
 " test
 " if has('wsl')

@@ -73,6 +73,7 @@ autocmd FileType defx call s:defx_my_settings()
 '''
 
 [[plugins]]
+# キーバインド連打補助
 repo = 'kana/vim-submode'
 
 [[plugins]]
@@ -80,3 +81,49 @@ repo = 'terryma/vim-multiple-cursors'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+if = 'has("python3")'
+hook_add = '''
+  nnoremap <silent> <leader>uy :<C-u>Denite neoyank<CR>
+  nnoremap <silent> <leader>uu :<C-u>Denite file_mru -mode=normal buffer<CR>
+  nnoremap <silent> <leader>ub :<C-u>Denite buffer<CR>
+  nnoremap <silent> <leader>ug :<C-u>Denite -auto_preview grep<CR>
+  nnoremap <silent> <leader>ur :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+  nnoremap <silent> <leader>un :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+  nnoremap <silent> <leader>up :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR> 
+'''
+hook_post_source = '''
+  call denite#custom#var('grep', 'command', ['pt'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', [])
+  call denite#custom#var('grep', 'default_opts', ['--follow-link', '--no-group', '--no-color'])
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+depends = 'denite.nvim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+depends = 'denite.nvim'
+on_event = 'TextYankPost'
+
+
+
+[[plugins]]
+# ヤンクしたときにカチッとする
+repo = 'machakann/vim-highlightedyank'
+hook_add = '''
+  let g:highlightedyank_highlight_duration = 200
+'''
+
+[[plugins]]
+repo = 'phpactor/phpactor'
+on_ft = ['php']
+build = 'composer install'
+
+# [[plugins]]
+# repo = 'prabirshrestha/async.vim'
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
