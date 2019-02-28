@@ -8,6 +8,27 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# build = ['./install.sh']
+# hook_add = '''
+#     let s:node = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
+#     let g:LanguageClient_serverCommands = {
+#         \ 'c': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
+#         \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
+#         \ 'php': []
+#     \ }
+#     " not stop completion $ & /
+#     set hidden
+#     set signcolumn=yes
+#     let g:LanguageClient_hoverPreview = "Never"
+#     nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+#     " Or map each action separately
+#     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+#     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+#     nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+# '''
+
 [[plugins]]
 repo ='Shougo/defx.nvim'
 hook_add = '''
@@ -79,24 +100,65 @@ repo = 'kana/vim-submode'
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-if = 'has("python3")'
-hook_add = '''
-  nnoremap <silent> <leader>uy :<C-u>Denite neoyank<CR>
-  nnoremap <silent> <leader>uu :<C-u>Denite file_mru -mode=normal buffer<CR>
-  nnoremap <silent> <leader>ub :<C-u>Denite buffer<CR>
-  nnoremap <silent> <leader>ug :<C-u>Denite -auto_preview grep<CR>
-  nnoremap <silent> <leader>ur :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
-  nnoremap <silent> <leader>un :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
-  nnoremap <silent> <leader>up :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR> 
-'''
-hook_post_source = '''
-  call denite#custom#var('grep', 'command', ['pt'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', [])
-  call denite#custom#var('grep', 'default_opts', ['--follow-link', '--no-group', '--no-color'])
-'''
+# [[plugins]]
+# # 設定参考
+# # http://replicity.hateblo.jp/entry/2017/06/03/140731
+# repo = 'Shougo/denite.nvim'
+# if = 'has("python3")'
+# hook_add = '''
+#   nnoremap <silent> <Leader>gy :<C-u>Denite neoyank<CR>
+#   nnoremap <silent> <Leader>gu :<C-u>Denite file_mru -mode=normal buffer<CR>
+#   " nnoremap <silent> <Leader>gb :<C-u>Denite buffer<CR>
+#   noremap <Leader>gb :Denite buffer<CR>
+#   nnoremap <silent> <Leader>gg :<C-u>Denite -auto_preview grep<CR>
+#   nnoremap <silent> <Leader>gr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+#   nnoremap <silent> <Leader>gn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+#   nnoremap <silent> <Leader>gp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
+# '''
+# hook_post_source = '''
+#   " grepはagを使用
+#   call denite#custom#var('grep', 'command', ['ag'])
+#   " カレントディレクトリもagつかう
+#   call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+#   call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+#   call denite#custom#var('grep', 'recursive_opts', [])
+#   call denite#custom#var('grep', 'pattern_opt', [])
+#   call denite#custom#var('grep', 'separator', ['--'])
+#   call denite#custom#var('grep', 'final_opts', [])
+# 
+#   " mapping
+#   " denite終了
+#   "ESCキーでdeniteを終了
+#   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
+#   call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+#   "C-N,C-Pで上下移動
+#   call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+#   call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+#   "C-J,C-Kでsplitで開く
+#   call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
+#   call denite#custom#map('insert', '<C-k>', '<denite:do_action:vsplit>', 'noremap')
+# 
+#   " denite開始
+#   " バッファ一覧
+#   noremap <C-P> :Denite buffer<CR>
+#   " ファイル一覧
+#   noremap <C-N> :Denite -buffer-name=file file<CR>
+#   " 最近使ったファイルの一覧
+#   noremap <C-Z> :Denite file_old<CR>
+#   " カレントディレクトリ
+#   noremap <C-C> :Denite file_rec<CR>
+#   "バッファ一覧
+#   nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
+# 
+#   "Denite でバッファ内検索 
+#   nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>
+#   nnoremap <silent> <expr><Space>l ":<C-u>DeniteWithCursorWord line<CR>"
+# 
+#   " プロンプトの左端に表示される文字を指定
+#   call denite#custom#option('default', 'prompt', '><))\">')
+#   " deniteの起動位置をtopに変更
+#   call denite#custom#option('default', 'direction', 'top')
+# '''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -107,8 +169,6 @@ on_path = '.*'
 repo = 'Shougo/neoyank.vim'
 depends = 'denite.nvim'
 on_event = 'TextYankPost'
-
-
 
 [[plugins]]
 # ヤンクしたときにカチッとする
@@ -121,9 +181,85 @@ hook_add = '''
 repo = 'phpactor/phpactor'
 on_ft = ['php']
 build = 'composer install'
+hook_add = '''
+  " phpactor キーマップ : https://qiita.com/cyrt/items/ff5edd392b3f41dd6e10
+  " 画面を分割して定義元へのジャンプ
+  function! DefinitionJumpWithPhpactor()
+      split
+      call phpactor#GotoDefinition()
+  endfunction
+
+  " useの補完
+  nmap <silent><Leader>u      :<C-u>call phpactor#UseAdd()<CR>
+  " コンテキストメニューの起動(カーソル下のクラスやメンバに対して実行可能な選択肢を表示してくれます)
+  nmap <silent><Leader>mm     :<C-u>call phpactor#ContextMenu()<CR>
+  " ナビゲーションメニューの起動(クラスの参照元を列挙したり、他ファイルへのジャンプなど)
+  nmap <silent><Leader>nn     :<C-u>call phpactor#Navigate()<CR>
+  " カーソル下のクラスやメンバの定義元にジャンプ
+  nmap <silent><Leader>o      :<C-u>call phpactor#GotoDefinition()<CR>
+  " 編集中のクラスに対し各種の変更を加える(コンストラクタ補完、インタフェース実装など)
+  nmap <silent><Leader>tt     :<C-u>call phpactor#Transform()<CR>
+  " 新しいクラスを生成する(編集中のファイルに)
+  nmap <silent><Leader>cc     :<C-u>call phpactor#ClassNew()<CR>
+  " 選択した範囲を変数に抽出する
+  nmap <silent><Leader>ee     :<C-u>call phpactor#ExtractExpression(v:false)<CR>
+  " 選択した範囲を変数に抽出する
+  vmap <silent><Leader>ee     :<C-u>call phpactor#ExtractExpression(v:true)<CR>
+  " 選択した範囲を新たなメソッドとして抽出する
+  vmap <silent><Leader>em     :<C-u>call phpactor#ExtractMethod()<CR>
+  " split → jump
+  nmap <silent><C-w><Leader>o :<C-u>call DefinitionJumpWithPhpactor()<CR>
+  " カーソル下のクラスや変数の情報を表示する
+  " 他のエディタで、マウスカーソルをおいたときに表示されるポップアップなどに相当
+  vmap <silent><Leader>hh     :<C-u>call phpactor#Hover()<CR>
+'''
 
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
 # 
 # [[plugins]]
 # repo = 'prabirshrestha/vim-lsp'
+
+
+
+# # 作業中
+# [[plugins]]
+# # 参考：https://qiita.com/arwtyxouymz0110/items/b09ef1ed7a2f7bf1c5e6
+# repo = 'Shougo/deoplete.nvim'
+# depends = 'context_filetype.vim'
+# on_i = 1
+# hook_source = '''
+#   call deoplete#enable()
+#   " No display of the number of competion list
+#   set shortmess+=c
+# 
+#   " <TAB>: completion.
+#   inoremap <silent><expr> <TAB>
+#         \ pumvisible() ? "\<C-n>" :
+#         \ <SID>check_back_space() ? "\<TAB>" :
+#         \ deoplete#manual_complete()
+#   function! s:check_back_space() abort
+#     let col = col('.') - 1
+#     return !col || getline('')[col - 1]  =~ '\s'
+#   endfunction
+# 
+#   " <S-TAB>: completion back.
+#   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+#   " <C-e>: popup cancel
+#   inoremap <expr><C-e>       deoplete#cancel_popup()
+# 
+#   call deoplete#custom#source('_', 'matchers', ['matcher_head'])
+#   call deoplete#custom#source('_', 'converters', [
+#         \ 'converter_remove_paren',
+#         \ 'converter_remove_overlap',
+#         \ 'matcher_length',
+#         \ 'converter_truncate_abbr',
+#         \ 'converter_truncate_menu',
+#         \ 'converter_auto_delimiter',
+#         \ ])
+#   call deoplete#custom#option('keyword_patterns', {
+#         \ '_': '[a-zA-Z_]\k*\(?',
+#         \ 'tex': '[^\w|\s][a-zA-Z_]\w*',
+#         \ })
+#   call deoplete#custom#option('camel_case', v:true)
+# '''
