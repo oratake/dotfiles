@@ -159,6 +159,7 @@ set shiftwidth=2 " 自動で挿入するインデントの文字数
 set softtabstop=0 " tabで挿入する文字数 無指定でts準拠
 " set expandtab ts= sw= sts= で一気に設定可
 set smartindent " 複数行貼り付けがおかしくなるかも。:set paste のあとペースト。
+set breakindent " インデントと同じに折り返す
 
 " 検索/置換
 
@@ -175,13 +176,16 @@ set noerrorbells
 " キーバインド
 " --------------------
 
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>
 " 行頭行末移動変更
 noremap H 0
 noremap L $
+
+" Y行末までヤンク
+nnoremap Y y$
 
 " バッファ移動
 nnoremap <silent> [b :bprevious<CR>

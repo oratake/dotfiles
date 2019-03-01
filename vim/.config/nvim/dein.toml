@@ -100,65 +100,65 @@ repo = 'kana/vim-submode'
 [[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 
-# [[plugins]]
-# # 設定参考
-# # http://replicity.hateblo.jp/entry/2017/06/03/140731
-# repo = 'Shougo/denite.nvim'
-# if = 'has("python3")'
-# hook_add = '''
-#   nnoremap <silent> <Leader>gy :<C-u>Denite neoyank<CR>
-#   nnoremap <silent> <Leader>gu :<C-u>Denite file_mru -mode=normal buffer<CR>
-#   " nnoremap <silent> <Leader>gb :<C-u>Denite buffer<CR>
-#   noremap <Leader>gb :Denite buffer<CR>
-#   nnoremap <silent> <Leader>gg :<C-u>Denite -auto_preview grep<CR>
-#   nnoremap <silent> <Leader>gr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
-#   nnoremap <silent> <Leader>gn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
-#   nnoremap <silent> <Leader>gp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
-# '''
-# hook_post_source = '''
-#   " grepはagを使用
-#   call denite#custom#var('grep', 'command', ['ag'])
-#   " カレントディレクトリもagつかう
-#   call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-#   call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-#   call denite#custom#var('grep', 'recursive_opts', [])
-#   call denite#custom#var('grep', 'pattern_opt', [])
-#   call denite#custom#var('grep', 'separator', ['--'])
-#   call denite#custom#var('grep', 'final_opts', [])
-# 
-#   " mapping
-#   " denite終了
-#   "ESCキーでdeniteを終了
-#   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
-#   call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
-#   "C-N,C-Pで上下移動
-#   call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-#   call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-#   "C-J,C-Kでsplitで開く
-#   call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
-#   call denite#custom#map('insert', '<C-k>', '<denite:do_action:vsplit>', 'noremap')
-# 
-#   " denite開始
-#   " バッファ一覧
-#   noremap <C-P> :Denite buffer<CR>
-#   " ファイル一覧
-#   noremap <C-N> :Denite -buffer-name=file file<CR>
-#   " 最近使ったファイルの一覧
-#   noremap <C-Z> :Denite file_old<CR>
-#   " カレントディレクトリ
-#   noremap <C-C> :Denite file_rec<CR>
-#   "バッファ一覧
-#   nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
-# 
-#   "Denite でバッファ内検索 
-#   nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>
-#   nnoremap <silent> <expr><Space>l ":<C-u>DeniteWithCursorWord line<CR>"
-# 
-#   " プロンプトの左端に表示される文字を指定
-#   call denite#custom#option('default', 'prompt', '><))\">')
-#   " deniteの起動位置をtopに変更
-#   call denite#custom#option('default', 'direction', 'top')
-# '''
+[[plugins]]
+# 設定参考
+# http://replicity.hateblo.jp/entry/2017/06/03/140731
+repo = 'Shougo/denite.nvim'
+if = 'has("python3")'
+hook_add = '''
+  nnoremap <silent> <Leader>gy :<C-u>Denite neoyank<CR>
+  nnoremap <silent> <Leader>gu :<C-u>Denite file_mru -mode=normal buffer<CR>
+  " nnoremap <silent> <Leader>gb :<C-u>Denite buffer<CR>
+  noremap <Leader>gb :Denite buffer<CR>
+  nnoremap <silent> <Leader>gg :<C-u>Denite -auto_preview grep<CR>
+  nnoremap <silent> <Leader>gr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+  nnoremap <silent> <Leader>gn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+  nnoremap <silent> <Leader>gp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
+'''
+hook_post_source = '''
+  " grepはagを使用
+  call denite#custom#var('grep', 'command', ['ag'])
+  " カレントディレクトリもagつかう
+  call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', [])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
+
+  " mapping
+  " denite終了
+  "ESCキーでdeniteを終了
+  call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
+  call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+  "C-N,C-Pで上下移動
+  call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+  call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+  "C-J,C-Kでsplitで開く
+  call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
+  call denite#custom#map('insert', '<C-k>', '<denite:do_action:vsplit>', 'noremap')
+
+  " denite開始
+  " バッファ一覧
+  noremap <C-P> :Denite buffer<CR>
+  " ファイル一覧
+  noremap <C-N> :Denite -buffer-name=file file<CR>
+  " 最近使ったファイルの一覧
+  noremap <C-Z> :Denite file_old<CR>
+  " カレントディレクトリ
+  noremap <C-C> :Denite file_rec<CR>
+  "バッファ一覧
+  nnoremap sB :<C-u>Denite buffer -buffer-name=file<CR>
+
+  "Denite でバッファ内検索 
+  nnoremap <silent> <Leader><C-f> :<C-u>Denite line<CR>
+  nnoremap <silent> <expr><Space>l ":<C-u>DeniteWithCursorWord line<CR>"
+
+  " プロンプトの左端に表示される文字を指定
+  call denite#custom#option('default', 'prompt', '>')
+  " deniteの起動位置をtopに変更
+  call denite#custom#option('default', 'direction', 'top')
+'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'

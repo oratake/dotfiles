@@ -2,7 +2,7 @@
 # OS依存設定
 # --------------------
 
-echo "Your env is "(uname)"."
+# echo "Your env is "(uname)"."
 
 switch (uname -a)
   ## Windows10 WSL Ubuntu 設定
@@ -26,8 +26,8 @@ switch (uname -a)
     # https://github.com/rcmdnk/trash
     if [ -d /usr/local/bin/trash ]
     else
-      echo '[CAUTION] You do not have "trash.sh"
-    Install this sh: https://github.com/rcmdnk/trash'
+    #  echo '[CAUTION] You do not have "trash.sh"
+    # Install this sh: https://github.com/rcmdnk/trash'
     end
 
     if [ -d $HOME/.Trash ]
