@@ -1,3 +1,9 @@
+# greeting message
+function fish_greeting
+  echo '><))"> Hello. pkpkpk... ＜◎（●´▿`●）◎＞yan...'
+end
+set fish_greeting
+
 # --------------------
 # OS依存設定
 # --------------------
