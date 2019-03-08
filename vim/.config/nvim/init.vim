@@ -4,8 +4,8 @@
 
 
 "dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+if !&compatible
+  set nocompatible
 endif
 
 " reset augroup
@@ -16,11 +16,14 @@ augroup END
 " dein settings {{{
 " dein自体の自動インストール
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-" let s:dein
-" }}}
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougodein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir . "," . &runtimepath
 
-" dein.vimのディレクトリ
-set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
+" }}}
 
 let s:dein_cache_dir =$XDG_CACHE_HOME . '/dein'
 let s:dein_config_dir =$XDG_CONFIG_HOME . '/nvim'
