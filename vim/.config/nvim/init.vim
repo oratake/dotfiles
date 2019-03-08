@@ -133,7 +133,6 @@ set number " 行番号
 set title " ターミナルのタイトル表示
 
 " 表示系
-
 set laststatus=2 " メッセージ行を2行確保(常に表示
 set cursorline " 行のハイライト
 " set cursorcolumn " 列のハイライト
@@ -144,6 +143,10 @@ set virtualedit=block
 set list " 不可視文字可視化
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲,extends:»,precedes:« " 不可視文字指定
 
+" メニュ
+set wildmenu
+set wildmode=list:longest,full
+
 " エンコーディング,改行コード,eof,eol関係
 set fileencodings=utf-8,sjis,cp932
 set fileformats=unix,dos,mac
@@ -151,7 +154,6 @@ set nofixendofline
 set noeol " eol無し
 
 " タブ,インデント関係
-
 " set noexpandtab " ハードタブ
 set expandtab " ソフトタブ
 set tabstop=2 " tab文字の表示文字数
@@ -162,7 +164,6 @@ set smartindent " 複数行貼り付けがおかしくなるかも。:set paste 
 set breakindent " インデントと同じに折り返す
 
 " 検索/置換
-
 set hlsearch " 検索文字列のハイライト
 set ignorecase " 全て小文字なら大小文字区別なく検索
 set smartcase " 大文字があれば区別して検索
@@ -173,19 +174,35 @@ set visualbell t_vb= " 空にする
 set noerrorbells
 
 " --------------------
-" キーバインド
+" Keymaps
 " --------------------
+" モード毎マップ参照 : https://yu8mada.com/2018/08/02/the-difference-between-nmap-and-nnoremap-in-vim/
 
+" Leader変更
 let g:mapleader = "\<Space>"
+nnoremap <Space> <Nop>
+" Leader Check
+nnoremap <Leader>test :<C-u>echo "yes"<CR>
 
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>
 " 行頭行末移動変更
 noremap H 0
 noremap L $
+" BSで戻らない
+nnoremap <BS> <Nop>
+" 見かけ行移動
+noremap j gj
+noremap gj j
+noremap k gk
+noremap gk k
 
+" xではヤンクしない
+nnoremap x "_x
 " Y行末までヤンク
 nnoremap Y y$
+" カーソル下単語ハイライト
+nnoremap <silent> <Leader><Leader> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
 " バッファ移動
 nnoremap <silent> [b :bprevious<CR>
@@ -231,7 +248,7 @@ nnoremap sO <C-w>=
 nnoremap sN :<C-u>bn<CR>
 nnoremap sP :<C-u>bp<CR>
 nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
+" nnoremap sT :<C-u>Denite tab<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
@@ -239,6 +256,7 @@ nnoremap sQ :<C-u>bd<CR>
 " denite 移行中
 " nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 " nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
 
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
