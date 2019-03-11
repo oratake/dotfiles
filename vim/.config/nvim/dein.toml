@@ -106,14 +106,16 @@ repo = 'terryma/vim-multiple-cursors'
 repo = 'Shougo/denite.nvim'
 if = 'has("python3")'
 hook_add = '''
-  nnoremap <silent> <Leader>gy :<C-u>Denite neoyank<CR>
-  nnoremap <silent> <Leader>gu :<C-u>Denite file_mru -mode=normal buffer<CR>
-  " nnoremap <silent> <Leader>gb :<C-u>Denite buffer<CR>
-  noremap <Leader>gb :Denite buffer<CR>
-  nnoremap <silent> <Leader>gg :<C-u>Denite -auto_preview grep<CR>
-  nnoremap <silent> <Leader>gr :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
-  nnoremap <silent> <Leader>gn :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
-  nnoremap <silent> <Leader>gp :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
+  nmap <Leader>d [denite]
+
+  nnoremap <silent> [denite]y :<C-u>Denite neoyank<CR>
+  nnoremap <silent> [denite]u :<C-u>Denite file_mru -mode=normal buffer<CR>
+  " nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
+  noremap [denite]b :Denite buffer<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite -auto_preview grep<CR>
+  nnoremap <silent> [denite]r :<C-u>Denite -resume -buffer-name=search-buffer-denite<CR>
+  nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=+1 -immediately<CR>
+  nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 '''
 hook_post_source = '''
   " grepはagを使用

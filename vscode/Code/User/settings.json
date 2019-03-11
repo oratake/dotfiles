@@ -76,5 +76,5 @@
   "files.trimFinalNewlines": true,
   "git.showPushSuccessNotification": true,
   "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1551161455054,
+  "php-cs-fixer.lastDownload": 1552294295187,
 }
