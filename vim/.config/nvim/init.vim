@@ -182,8 +182,9 @@ set noerrorbells
 " モード毎マップ参照 : https://yu8mada.com/2018/08/02/the-difference-between-nmap-and-nnoremap-in-vim/
 
 " Leader変更
-let g:mapleader = "\<Space>"
-nnoremap <Space> <Nop>
+" nnoremap <Space> <Nop>
+" let g:mapleader = "\<Space>"
+" let mapleader = " "
 " Leader Check
 nnoremap <Leader>test :<C-u>echo "yes"<CR>
 
