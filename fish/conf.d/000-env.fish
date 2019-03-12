@@ -1,0 +1,1 @@
+set -U fish_user_paths $HOME/.rbenv/bin $PATH
