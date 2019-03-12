@@ -44,6 +44,9 @@ switch (uname -a)
 
     # rbenv
     status --is-interactive; and source (rbenv init -|psub)
+    function wsl-xclip
+      powershell.exe ruby -e "require 'win32/clipboard' ; puts Win32::Clipboard.data(Win32::Clipboard::UNICODETEXT)"
+    end
 
   # OSX(Darwin)設定
   case '*Darwin*'

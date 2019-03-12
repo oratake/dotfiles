@@ -113,21 +113,21 @@ set showcmd " 入力中のコマンドをステータスに表示
 " set clipboard^=unnamedplus
 set clipboard+=unnamed
 
-" " クリップボード WSLのみ
-" if system('uname -a | grep Microsoft') != ""
-"   let g:clipboard = {
-"     \ 'name': 'myClipboard',
-"     \ 'copy': {
-"     \   '+': 'win32yank.exe -i',
-"     \   '*': 'win32yank.exe -i',
-"     \ },
-"     \ 'paste': {
-"     \   '+': 'win32yank.exe -o',
-"     \   '*': 'win32yank.exe -o',
-"     \ },
-"     \ 'cache_enabled': 1,
-"     \}
-" endif
+" クリップボード WSLのみ
+if system('uname -a | grep Microsoft') != ""
+  let g:clipboard = {
+    \ 'name': 'myClipboard',
+    \ 'copy': {
+    \   '+': 'win32yank.exe -i',
+    \   '*': 'win32yank.exe -i',
+    \ },
+    \ 'paste': {
+    \   '+': 'win32yank.exe -o',
+    \   '*': 'win32yank.exe -o',
+    \ },
+    \ 'cache_enabled': 1,
+    \}
+endif
 
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
