@@ -29,6 +29,14 @@ repo = 'itchyny/lightline.vim'
 #     nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 # '''
 
+# [[plugins]]
+# repo = 'mattn/emmet-vim'
+# hook_add = '''
+#   let g:user_emmet_leader_key=''
+#   autocmd FileType html imap <buffer><expr><tab>
+#     \ emmet#isExpandable() ? "\<plug>(emmet-expand-abbr)" : "\<tab>"
+# '''
+
 [[plugins]]
 repo ='Shougo/defx.nvim'
 hook_add = '''

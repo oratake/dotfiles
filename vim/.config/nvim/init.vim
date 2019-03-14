@@ -190,9 +190,9 @@ nnoremap <Leader>test :<C-u>echo "yes"<CR>
 
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>
-" 行頭行末移動変更
-noremap H 0
-noremap L $
+" " 行頭行末移動変更
+" noremap H 0
+" noremap L $
 " BSで戻らない
 nnoremap <BS> <Nop>
 " 見かけ行移動
