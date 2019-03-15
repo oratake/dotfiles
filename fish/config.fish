@@ -77,6 +77,17 @@ alias vf='vim ~/.config/fish/config.fish'
 alias sf='source ~/.config/fish/config.fish'
 alias vv='vim ~/.config/nvim/'
 
+# git
+alias gc='git commit -m'
+alias ga='git add'
+alias gau='git add -u'
+alias gaA='git add -A'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log --graph --decorate --oneline --color'
+alias gpus='git push'
+alias gpul='git pull'
+
 # --------------------
 # keyBind
 # --------------------
