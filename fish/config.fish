@@ -77,7 +77,6 @@ alias vf='vim ~/.config/fish/config.fish'
 alias sf='source ~/.config/fish/config.fish'
 alias vv='vim ~/.config/nvim/'
 
-<<<<<<< Updated upstream
 # git
 alias gc='git commit -m'
 alias ga='git add'
@@ -88,13 +87,6 @@ alias gd='git diff'
 alias gl='git log --graph --decorate --oneline --color'
 alias gpus='git push'
 alias gpul='git pull'
-=======
-# Git
-alias gs='git status'
-alias gc='git commit -m'
-alias ga='git add'
-alias gl='git log --oneline --graph'
->>>>>>> Stashed changes
 
 # --------------------
 # keyBind
