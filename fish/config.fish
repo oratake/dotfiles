@@ -78,6 +78,7 @@ alias sf='source ~/.config/fish/config.fish'
 alias vv='vim ~/.config/nvim/'
 
 # git
+alias g='git'
 alias gc='git commit -m'
 alias ga='git add'
 alias gau='git add -u'

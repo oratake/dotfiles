@@ -183,7 +183,7 @@ set noerrorbells
 
 " Leader変更
 " nnoremap <Space> <Nop>
-" let g:mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 " let mapleader = " "
 " Leader Check
 nnoremap <Leader>test :<C-u>echo "yes"<CR>
@@ -207,12 +207,15 @@ nnoremap x "_x
 nnoremap Y y$
 " カーソル下単語ハイライト
 nnoremap <silent> <Leader><Leader> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+" 検索後中央に表示
+nnoremap n nzz
+nnoremap N Nzz
 
 " バッファ移動
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
+nnoremap <silent> [b :<C-u>bprevious<CR>
+nnoremap <silent> ]b :<C-u>bnext<CR>
+nnoremap <silent> [B :<C-u>bfirst<CR>
+nnoremap <silent> ]B :<C-u>blast<CR>
 
 " コマンド上で%%でバッファと同じ階層を展開
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -261,7 +264,10 @@ nnoremap sQ :<C-u>bd<CR>
 " nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 " nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
+" git (vim-figitive)
 
+
+" 連打有効化
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
 call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')

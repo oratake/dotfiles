@@ -187,10 +187,15 @@ hook_add = '''
   let g:highlightedyank_highlight_duration = 200
 '''
 
-# [[plugins]]
-# repo = 'phpactor/phpactor'
-# on_ft = ['php']
-# build = 'composer install'
+[[plugins]]
+# git on vim
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'phpactor/phpactor'
+on_ft = ['php']
+build = 'composer install'
+
 # hook_add = '''
 #   " phpactor キーマップ : https://qiita.com/cyrt/items/ff5edd392b3f41dd6e10
 #   " 画面を分割して定義元へのジャンプ
