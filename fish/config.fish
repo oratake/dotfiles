@@ -80,14 +80,16 @@ alias vv='vim ~/.config/nvim/'
 # git
 alias g='git'
 alias gc='git commit -m'
+alias gco='git checkout'
 alias ga='git add'
 alias gau='git add -u'
 alias gaA='git add -A'
 alias gs='git status'
 alias gd='git diff'
-alias gl='git log --graph --decorate --oneline --color'
+alias gl='git log --graph --decorate --oneline --color --all --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%y-%m-%d %T"'
 alias gpus='git push'
 alias gpul='git pull'
+alias gm='git merge'
 
 # --------------------
 # keyBind
