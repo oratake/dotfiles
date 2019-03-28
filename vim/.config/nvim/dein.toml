@@ -191,10 +191,10 @@ hook_add = '''
 # git on vim
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'phpactor/phpactor'
-on_ft = ['php']
-build = 'composer install'
+# [[plugins]]
+# repo = 'phpactor/phpactor'
+# on_ft = ['php']
+# build = 'composer install'
 
 # hook_add = '''
 #   " phpactor キーマップ : https://qiita.com/cyrt/items/ff5edd392b3f41dd6e10
@@ -234,47 +234,66 @@ build = 'composer install'
 # 
 # [[plugins]]
 # repo = 'prabirshrestha/vim-lsp'
+# hook_add = '''
+#   if executable('')
+# '''
 
-
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_source = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+  \ 'php': ['php', $HOME.'/.composer/vendor/bin/php-language-server.php'],
+  \ }
+  let g:deoplete#enable_at_startup = 1
+  """ Key: K                | Action: Hover
+  """ Key: gd               | Action: go to definition
+  """ Key: f2               | Action: Rename
+  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+'''
 
 # # 作業中
-# [[plugins]]
+[[plugins]]
 # # 参考：https://qiita.com/arwtyxouymz0110/items/b09ef1ed7a2f7bf1c5e6
-# repo = 'Shougo/deoplete.nvim'
-# depends = 'context_filetype.vim'
-# on_i = 1
-# hook_source = '''
-#   call deoplete#enable()
-#   " No display of the number of competion list
-#   set shortmess+=c
-# 
-#   " <TAB>: completion.
-#   inoremap <silent><expr> <TAB>
-#         \ pumvisible() ? "\<C-n>" :
-#         \ <SID>check_back_space() ? "\<TAB>" :
-#         \ deoplete#manual_complete()
-#   function! s:check_back_space() abort
-#     let col = col('.') - 1
-#     return !col || getline('')[col - 1]  =~ '\s'
-#   endfunction
-# 
-#   " <S-TAB>: completion back.
-#   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-#   " <C-e>: popup cancel
-#   inoremap <expr><C-e>       deoplete#cancel_popup()
-# 
-#   call deoplete#custom#source('_', 'matchers', ['matcher_head'])
-#   call deoplete#custom#source('_', 'converters', [
-#         \ 'converter_remove_paren',
-#         \ 'converter_remove_overlap',
-#         \ 'matcher_length',
-#         \ 'converter_truncate_abbr',
-#         \ 'converter_truncate_menu',
-#         \ 'converter_auto_delimiter',
-#         \ ])
-#   call deoplete#custom#option('keyword_patterns', {
-#         \ '_': '[a-zA-Z_]\k*\(?',
-#         \ 'tex': '[^\w|\s][a-zA-Z_]\w*',
-#         \ })
-#   call deoplete#custom#option('camel_case', v:true)
-# '''
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+on_i = 1
+hook_source = '''
+  call deoplete#enable()
+  " No display of the number of competion list
+  set shortmess+=c
+
+  " <TAB>: completion.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ deoplete#manual_complete()
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('')[col - 1]  =~ '\s'
+  endfunction
+
+  " <S-TAB>: completion back.
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+  " <C-e>: popup cancel
+  inoremap <expr><C-e>       deoplete#cancel_popup()
+
+  call deoplete#custom#source('_', 'matchers', ['matcher_head'])
+  call deoplete#custom#source('_', 'converters', [
+        \ 'converter_remove_paren',
+        \ 'converter_remove_overlap',
+        \ 'matcher_length',
+        \ 'converter_truncate_abbr',
+        \ 'converter_truncate_menu',
+        \ 'converter_auto_delimiter',
+        \ ])
+  call deoplete#custom#option('keyword_patterns', {
+        \ '_': '[a-zA-Z_]\k*\(?',
+        \ 'tex': '[^\w|\s][a-zA-Z_]\w*',
+        \ })
+  call deoplete#custom#option('camel_case', v:true)
+'''
