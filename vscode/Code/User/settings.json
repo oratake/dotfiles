@@ -1,7 +1,4 @@
 {
-
-
-
   "_comment": "Path (set in syncLocalsettings.json)",
   "git.path": null,
   "php.validate.executablePath": "C:/xampp/php/php.exe",
@@ -14,7 +11,6 @@
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
   "git.ignoreMissingGitWarning": true,
-  "_comment": "dd20c4997200d932b999e7e79f2dafbca50c231d",
   "sync.autoUpload": true,
   "sync.autoDownload": true,
   "easysass.formats": [
@@ -51,11 +47,14 @@
   "terminal.integrated.confirmOnExit": true,
   "terminal.integrated.fontSize": 18,
   "terminal.integrated.fontFamily": "cica, \"ricty diminished for powerline\"",
+
   "_comment": "Vim Settings",
+  "vim.enableNeovim": false,
+  "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
   "vim.visualstar": true,
+  "vim.foldfix": true,
   "vim.easymotion": true,
-  "vim.useSystemClipboard": false,
   "vim.insertModeKeyBindings": [
     { "before": [ "j", "j" ], "after": [ "<Esc>" ] }
   ],
@@ -64,17 +63,18 @@
     { "before": [ "L" ], "after": [ "$" ] }
   ],
   "vim.normalModeKeyBindings": [
-    { "before": [ "H" ], "after": [ "^" ] },
-    { "before": [ "L" ], "after": [ "$" ] }
+    { "before": [ "j" ], "after": [ "g", "j" ] },
+    { "before": [ "k" ], "after": [ "g", "k" ] }
   ],
   "editor.detectIndentation": false,
   "gitlens.settings.mode": "advanced",
   "sync.gist": "f118cefdb0d8c297a2190c71361971f9",
 
+  "files.autoGuessEncoding": false,
   "files.trimTrailingWhitespace": false,
   "files.insertFinalNewline": false,
   "files.trimFinalNewlines": true,
   "git.showPushSuccessNotification": true,
   "php-cs-fixer.executablePath": "${extensionPath}\\php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1553235622693,
+  "php-cs-fixer.lastDownload": 1554102020336,
 }
