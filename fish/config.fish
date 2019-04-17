@@ -15,7 +15,7 @@ switch (uname -a)
   case '*Linux*Microsoft*'
     # WSL GUI環境設定
     # https://qiita.com/MERIK/items/ef4ecf7a51f89c403e94
-    set -x DISPLAY :0.0
+    set -x DISPLAY localhost:0.0
     set -x LIBGL_ALWAYS_INDIRECT 1
 
     # Vagrant関係
@@ -95,7 +95,8 @@ alias gm='git merge'
 # keyBind
 # --------------------
 
-
+# プロンプトでvi
+fish_vi_key_bindings
 
 # プロンプト設定
 # bobthefish
