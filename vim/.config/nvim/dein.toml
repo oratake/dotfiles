@@ -102,6 +102,10 @@ autocmd FileType defx call s:defx_my_settings()
 '''
 
 [[plugins]]
+repo = 'posva/vim-vue'
+hook_source = 'autocmd FileType vue syntax sync fromstart'
+
+[[plugins]]
 # キーバインド連打補助
 repo = 'kana/vim-submode'
 
@@ -183,9 +187,7 @@ on_event = 'TextYankPost'
 [[plugins]]
 # ヤンクしたときにカチッとする
 repo = 'machakann/vim-highlightedyank'
-hook_add = '''
-  let g:highlightedyank_highlight_duration = 200
-'''
+hook_add = 'let g:highlightedyank_highlight_duration = 200'
 
 [[plugins]]
 # git on vim
