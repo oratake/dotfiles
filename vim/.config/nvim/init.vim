@@ -110,24 +110,24 @@ set showcmd " 入力中のコマンドをステータスに表示
 
 " クリップボードとヤンクをリンク
 " set clipboard&
-" set clipboard^=unnamedplus
-set clipboard+=unnamed
+set clipboard=unnamedplus
+" set clipboard+=unnamed
 
 " クリップボード WSLのみ
-if system('uname -a | grep Microsoft') != ""
-  let g:clipboard = {
-    \ 'name': 'myClipboard',
-    \ 'copy': {
-    \   '+': 'win32yank.exe -i',
-    \   '*': 'win32yank.exe -i',
-    \ },
-    \ 'paste': {
-    \   '+': 'win32yank.exe -o',
-    \   '*': 'win32yank.exe -o',
-    \ },
-    \ 'cache_enabled': 1,
-    \}
-endif
+" if system('uname -a | grep Microsoft') != ""
+"   let g:clipboard = {
+"     \ 'name': 'myClipboard',
+"     \ 'copy': {
+"     \   '+': 'win32yank.exe -i',
+"     \   '*': 'win32yank.exe -i',
+"     \ },
+"     \ 'paste': {
+"     \   '+': 'win32yank.exe -o',
+"     \   '*': 'win32yank.exe -o',
+"     \ },
+"     \ 'cache_enabled': 1,
+"     \}
+" endif
 
 " カーソル移動
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
@@ -263,6 +263,10 @@ nnoremap sQ :<C-u>bd<CR>
 " denite 移行中
 " nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 " nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+" terminal mode キャンセル簡略化
+tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> jj <ESC>
 
 " git (vim-figitive)
 
