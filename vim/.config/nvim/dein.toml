@@ -258,6 +258,20 @@ hook_source = '''
   nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 '''
 
+# fuzzy finder系
+# 参考: https://meteora.work/vim-dein-fzf
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+  nnoremap <C-p> :FZFFileList<CR>
+  command! FZFFileList call fzf#run(fzf#wrap({
+    \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
+    \ 'down': '40%'}))
+'''
+
 # # 作業中
 # [[plugins]]
 # # 参考：https://qiita.com/arwtyxouymz0110/items/b09ef1ed7a2f7bf1c5e6

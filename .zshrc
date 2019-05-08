@@ -50,3 +50,5 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug load
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
