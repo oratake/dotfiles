@@ -96,7 +96,8 @@ if has("syntax")
 endif
 
 " colorscheme
-colorscheme japanesque
+" list: japanesque, dracula, iceburg, monokai_pro
+colorscheme monokai_pro
 set termguicolors " truecolor
 
 set showmatch
@@ -113,6 +114,7 @@ set showcmd " 入力中のコマンドをステータスに表示
 set clipboard=unnamedplus
 " set clipboard+=unnamed
 
+" OUTDATED
 " クリップボード WSLのみ
 " if system('uname -a | grep Microsoft') != ""
 "   let g:clipboard = {
@@ -133,6 +135,7 @@ set clipboard=unnamedplus
 " set whichwrap=b,s,h,l,<,>,[,] " 行頭行末の左右移動で行をまたぐ
 
 set number " 行番号
+set relativenumber " 選択行からの相対行番号
 set title " ターミナルのタイトル表示
 
 " 表示系
@@ -182,24 +185,33 @@ set noerrorbells
 " モード毎マップ参照 : https://yu8mada.com/2018/08/02/the-difference-between-nmap-and-nnoremap-in-vim/
 
 " Leader変更
-" nnoremap <Space> <Nop>
+nnoremap <Space> <Nop>
 let g:mapleader = "\<Space>"
 " let mapleader = " "
 " Leader Check
-nnoremap <Leader>test :<C-u>echo "yes"<CR>
+" nmap <Leader>a [not_binded] " これで使わない文字をnot_bindでエスケープできそう？
+" nmap <Leader>b [not_binded]
+" nmap <Leader>c [not_binded]
+nmap <Leader>t [test]
+noremap [test]t :<C-u>echo "SUCCEED"<CR>
 
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>
-" " 行頭行末移動変更
-" noremap H 0
-" noremap L $
-" BSで戻らない
+" 行頭行末移動変更
+nnoremap H ^
+vnoremap H ^
+nnoremap L $
+vnoremap L $
+
+" 誤動作防止
 nnoremap <BS> <Nop>
-" 見かけ行移動
-noremap j gj
-noremap gj j
-noremap k gk
-noremap gk k
+" leaderのエスケープはleader部分に追加済み
+
+" " 見かけ行移動
+" noremap j gj
+" noremap gj j
+" noremap k gk
+" noremap gk k
 
 " xではヤンクしない
 nnoremap x "_x
@@ -210,6 +222,16 @@ nnoremap <silent> <Leader><Leader> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsea
 " 検索後中央に表示
 nnoremap n nzz
 nnoremap N Nzz
+" スクロール改善
+nnoremap <C-y> <C-y>k
+nnoremap <C-e> <C-e>j
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
+
+
+" ハイライト消す
+nnoremap <ESC><ESC> :<C-u>noh<CR>
 
 " バッファ移動
 nnoremap <silent> [b :<C-u>bprevious<CR>
@@ -222,11 +244,18 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " 括弧補完
 inoremap { {}<ESC>i
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap {<CR> {}<Left><CR><ESC><S-o>
+inoremap {} {}
 inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap (<CR> ()<Left><CR><ESC><S-o>
+inoremap () ()
 inoremap [ []<ESC>i
-inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap [<CR> []<Left><CR><ESC><S-o>
+inoremap [] []
+
+" カンマ移動最適化
+inoremap "" ""<Left>
+inoremap '' ''<Left>
 
 " </でHTML閉じタグ補完
 augroup HTMLCloser
