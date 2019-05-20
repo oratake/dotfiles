@@ -156,8 +156,8 @@ set wildmode=list:longest,full
 " エンコーディング,改行コード,eof,eol関係
 set fileencodings=utf-8,sjis,cp932
 set fileformats=unix,dos,mac
-set nofixendofline
 set noeol " eol無し
+set nofixendofline
 
 " タブ,インデント関係
 " set noexpandtab " ハードタブ
@@ -194,6 +194,9 @@ let g:mapleader = "\<Space>"
 " nmap <Leader>c [not_binded]
 nmap <Leader>t [test]
 noremap [test]t :<C-u>echo "SUCCEED"<CR>
+
+nmap <Leader>fz :<C-u>FZF<CR>
+nmap <Leader>ag :<C-u>Ag<CR>
 
 " 挿入モードからjj連打でesc
 inoremap <silent> jj <ESC>

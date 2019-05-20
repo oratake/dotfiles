@@ -26,6 +26,13 @@ repo = 'itchyny/lightline.vim'
 #     \ }
 # '''
 
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup=1
+  let g:indent_guides_auto_colors = 0
+  let g:indent_guides_exclude_filetypes = ['help', 'vimfiler', 'terminal']
+'''
 
 # [[plugins]]
 # repo = 'autozimu/LanguageClient-neovim'
@@ -119,6 +126,9 @@ repo = 'itchyny/lightline.vim'
 #   nnoremap fe :Defx -split=vertical -winwidth=35 -toggle -show-ignored-files<CR>
 # " defx Config: end -------------------
 # '''
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -288,7 +298,7 @@ build = './install --all'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-  nnoremap <C-p> :FZFFileList<CR>
+  nnoremap <C-p> :<C-u>FZFFileList<CR>
   command! FZFFileList call fzf#run(fzf#wrap({
     \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
     \ 'down': '40%'}))
