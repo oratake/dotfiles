@@ -163,8 +163,8 @@ set nofixendofline
 " set noexpandtab " ハードタブ
 set expandtab " ソフトタブ
 set tabstop=2 " tab文字の表示文字数
-set shiftwidth=4 " 自動で挿入するインデントの文字数
-set softtabstop=4 " tabで挿入する文字数 無指定でts準拠
+set shiftwidth=2 " 自動で挿入するインデントの文字数
+set softtabstop=0 " tabで挿入する文字数 無指定でts準拠
 " set expandtab ts= sw= sts= で一気に設定可
 set smartindent " 複数行貼り付けがおかしくなるかも。:set paste のあとペースト。
 set breakindent " インデントと同じに折り返す
