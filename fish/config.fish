@@ -88,6 +88,10 @@ alias gpus='git push'
 alias gpul='git pull'
 alias gm='git merge'
 
+# docker
+alias d='docker'
+alias dc='docker container'
+
 # --------------------
 # keyBind
 # --------------------
