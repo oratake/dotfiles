@@ -263,7 +263,8 @@ inoremap '' ''<Left>
 " </でHTML閉じタグ補完
 augroup HTMLCloser
   autocmd!
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F<i
+  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o><ESC>F<i
 augroup END
 
 " ペイン操作関係

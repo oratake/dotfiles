@@ -91,6 +91,7 @@ alias gm='git merge'
 # docker
 alias d='docker'
 alias dc='docker container'
+alias d-c='docker-compose'
 
 # --------------------
 # keyBind
