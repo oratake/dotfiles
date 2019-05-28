@@ -11,13 +11,20 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'phanviet/vim-monokai-pro'
 [[plugins]]
+repo = 'benjaminwhite/Benokai'
+[[plugins]]
+repo = 'jpo/vim-railscasts-theme'
+[[plugins]]
 repo = 'dracula/vim'
 name = 'dracula'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 [[plugins]]
 repo = 'vim-scripts/wombat256.vim'
-
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+[[plugins]]
+repo = 'oka-h/yozakura.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
