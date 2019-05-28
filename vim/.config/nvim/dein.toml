@@ -350,11 +350,7 @@ hook_add = '''
 
 
 
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# hook_source = '''
-#   " unix用
-#   if has('unix')
-#     
-#   endif
-# '''
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merge = 0
+build = './install.sh nightly'
