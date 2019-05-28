@@ -272,30 +272,24 @@ repo = 'tpope/vim-fugitive'
 
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
-# 
-# [[plugins]]
-# repo = 'prabirshrestha/vim-lsp'
-# hook_add = '''
-#   if executable('')
-# '''
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_source = '''
-  set hidden
-  let g:LanguageClient_serverCommands = {
-  \ 'php': ['php', $HOME.'/.composer/vendor/bin/php-language-server.php'],
-  \ }
-  let g:deoplete#enable_at_startup = 1
-  """ Key: K                | Action: Hover
-  """ Key: gd               | Action: go to definition
-  """ Key: f2               | Action: Rename
-  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-'''
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# rev = 'next'
+# build = 'bash install.sh'
+# hook_source = '''
+#   set hidden
+#   let g:LanguageClient_serverCommands = {
+#   \ 'php': ['php', $HOME.'/.composer/vendor/bin/php-language-server.php'],
+#   \ }
+#   let g:deoplete#enable_at_startup = 1
+#   """ Key: K                | Action: Hover
+#   """ Key: gd               | Action: go to definition
+#   """ Key: f2               | Action: Rename
+#   nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+#   nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+#   nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+# '''
 
 # fuzzy finder系
 # 参考: https://meteora.work/vim-dein-fzf
