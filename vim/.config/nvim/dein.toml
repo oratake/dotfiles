@@ -28,7 +28,7 @@ repo = 'oka-h/yozakura.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-hook_source = '''
+hook_add = '''
   " wombat始め、lightlineにはカラースキームがいくつかあるので要確認。
   let g:lightline = {
     \ 'colorscheme': 'wombat'
