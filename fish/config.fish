@@ -37,7 +37,8 @@ switch (uname -a)
     # end
 
     if [ -d $HOME/.Trash ]
-      alias rm='mv --backup=numbered --target-directory=$HOME/.Trash'
+      alias rm='trash-put'
+      # alias rm='mv --backup=numbered --target-directory=$HOME/.Trash'
     else
       echo 'ERROR: TrashBox(.Trash) is not exist.'
     end
