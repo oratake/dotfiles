@@ -366,3 +366,11 @@ hook_add = '''
 repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
+
+# 矩形挿入バグ修正
+[[plugins]]
+repo = 'bfredl/nvim-miniyank'
+hook_add = '''
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+'''
