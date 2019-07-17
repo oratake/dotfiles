@@ -10,14 +10,15 @@
         "state.vscdb.backup",
         "syncLocalSettings.json",
         ".DS_Store",
-        "sync.lock"
+        "sync.lock",
+        "state.*"
     ],
     "ignoreUploadFolders": [
         "workspaceStorage"
     ],
     "ignoreExtensions": [],
     "gistDescription": "Visual Studio Code Settings Sync Gist",
-    "version": 329,
+    "version": 340,
     "token": "455e2e69cacff4d09d4b411e05b4c2f86ff08982",
     "downloadPublicGist": false,
     "supportedFileExtensions": [
@@ -32,6 +33,8 @@
     "askGistName": false,
     "customFiles": {},
     "hostName": null,
+    "universalKeybindings": false,
+    "autoUploadDelay": 20,
     "replaceCodeSettings": {
         "editor.fontSize": 16,
         "php.validate.executablePath": "C:\\php7\\php-win.exe",
