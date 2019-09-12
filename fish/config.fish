@@ -43,12 +43,9 @@ switch (uname -a)
       echo 'ERROR: TrashBox(.Trash) is not exist.'
     end
 
-    # rbenv
-    status --is-interactive; and source (rbenv init -|psub)
-
   # OSX(Darwin)設定
   case '*Darwin*'
-    alias rm='trash'
+    # alias rm='trash'
 end
 
 # --------------------
@@ -63,6 +60,8 @@ set -x XDG_CACHE_HOME $HOME"/.cache"
 # PATH通し
 # rbenv
 set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+status --is-interactive; and source (rbenv init -|psub)
+
 # rbenv init - | source
 
 # --------------------
@@ -89,10 +88,17 @@ alias gpus='git push'
 alias gpul='git pull'
 alias gm='git merge'
 
+# rails
+alias r='rails'
+alias rt='rails test'
+
 # docker
 alias d='docker'
 alias dc='docker container'
 alias d-c='docker-compose'
+
+# heroku
+alias h='heroku'
 
 # --------------------
 # keyBind

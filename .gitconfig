@@ -17,6 +17,8 @@
   m  = merge
 [core]
   editor = nvim
+  filemode = false
+  autocrlf = false
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 

@@ -199,8 +199,11 @@ noremap [test]t :<C-u>echo "SUCCEED"<CR>
 nmap <Leader>fz :<C-u>FZF<CR>
 nmap <Leader>ag :<C-u>Ag<CR>
 
-" 挿入モードからjj連打でesc
+" jj連打でesc
 inoremap <silent> jj <ESC>
+" c-]で右にesc
+inoremap <C-]> <Esc><Right>
+
 " 行頭行末移動変更
 nnoremap H ^
 vnoremap H ^
