@@ -45,6 +45,9 @@ switch (uname -a)
 
   # OSX(Darwin)設定
   case '*Darwin*'
+    # python pip用PATH
+    set PATH $HOME"/Library/Python/3.7/bin" $PATH
+
     # alias rm='trash'
 end
 
