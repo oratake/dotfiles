@@ -68,6 +68,12 @@ status --is-interactive; and source (rbenv init -|psub)
 # rbenv init - | source
 
 # --------------------
+# powerline
+# --------------------
+# set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
+# powerline-setup
+
+# --------------------
 # alias
 # --------------------
 
@@ -110,8 +116,21 @@ alias h='heroku'
 # プロンプトでvi
 fish_vi_key_bindings
 
-# プロンプト設定
+# --------------------
+# プロンプト
+# --------------------
+
+# # fish本来のviモードの表示をなくすオーバーライド
+# function fish_mode_prompt
+# end
+
 # bobthefish
+# 左プロンプト
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
+
+# 右プロンプト
+# command実行時間非表示
+set -g theme_display_cmd_duration no
+set -g theme_date_format "+%T"

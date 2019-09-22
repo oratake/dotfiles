@@ -96,9 +96,8 @@ if has("syntax")
 endif
 
 " colorscheme
-" list: japanesque, dracula, iceburg, monokai_pro, wombat256mod, benokai, railscasts, hybrid
-" colorscheme monokai_pro
-colorscheme yozakura
+" list: japanesque, dracula, iceburg, monokai_pro, wombat256mod, benokai, railscasts, hybrid, yozakura
+colorscheme japanesque
 set termguicolors " truecolor
 
 set showmatch
