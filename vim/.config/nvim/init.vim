@@ -96,9 +96,12 @@ if has("syntax")
 endif
 
 " colorscheme
-" list: japanesque, dracula, iceburg, monokai_pro, wombat256mod, benokai, railscasts, hybrid, yozakura
-colorscheme japanesque
+" list: japanesque, japanesque_akebono, dracula, iceburg, monokai_pro, wombat256mod, benokai, railscasts, hybrid, yozakura
+colorscheme japanesque_akebono
+" :h xterm-true-color 参照
 set termguicolors " truecolor
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set showmatch
 set mouse=a
