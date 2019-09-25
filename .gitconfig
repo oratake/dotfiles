@@ -1,5 +1,5 @@
 [user]
-  name = Kyosuke Takenaka
+  name = oratake
   email = smith.shimomura@gmail.com
 [color]
   ui = auto
@@ -11,12 +11,13 @@
   aA = add -A
   s  = status
   d  = diff --color-words
-  l  = log --graph --decorate --oneline --color --all --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%y-%m-%d %T"
+  l  = log --graph --decorate --oneline --color --all --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=format:'%y-%m-%d %T'
   ps = push
   pl = pull
   m  = merge
 [core]
   editor = nvim
+  excludesfile = ~/.gitignore_global
   filemode = false
   autocrlf = false
 [difftool "sourcetree"]
@@ -30,5 +31,3 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
-[commit]
-  template = /Users/kyosuke/.stCommitMsg
