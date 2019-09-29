@@ -62,10 +62,19 @@ set -x XDG_CACHE_HOME $HOME"/.cache"
 
 # PATH通し
 # rbenv
-set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
-status --is-interactive; and source (rbenv init -|psub)
+if [ -d $HOME"/.rbenv" ]
+  set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+  status --is-interactive; and source (rbenv init -|psub)
+end
 
 # rbenv init - | source
+
+# fisher
+if not functions -q fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
+end
 
 # --------------------
 # powerline
