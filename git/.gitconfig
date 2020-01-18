@@ -1,6 +1,5 @@
-[user]
-  name = oratake
-  email = smith.shimomura@gmail.com
+[include]
+  path = .gitconfig.user
 [color]
   ui = auto
 [alias]

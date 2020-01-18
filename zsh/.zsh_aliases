@@ -1,0 +1,46 @@
+# vim
+alias v='vim'
+alias vi='vim'
+alias vim='nvim'
+
+# env integration
+alias sz='source ~/.zshrc'
+alias vz='vim ~/.zshrc'
+alias vv='vim ~/.config/nvim/'
+
+alias l='ls -ltr --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
+
+# --------------------
+# apps
+# --------------------
+
+# tmux
+alias t='tmux'
+
+# git
+alias g='git'
+alias gc='git commit -m'
+alias gco='git checkout'
+alias ga='git add'
+alias gau='git add -u'
+alias gaA='git add -A'
+alias gs='git status'
+alias gd='git diff --color-words'
+alias gl='git log --graph --decorate --oneline --color --all --pretty="format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]" --date=format:"%y-%m-%d %T"'
+alias gpus='git push'
+alias gpul='git pull'
+alias gm='git merge'
+
+# rails
+alias r='rails'
+alias rt='rails test'
+
+# docker
+alias d='docker'
+alias dc='docker container'
+alias d-c='docker-compose'
+
+# heroku
+alias h='heroku'
