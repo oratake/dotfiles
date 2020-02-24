@@ -16,6 +16,7 @@ init: git tmux zsh nvim
 
 git:
 	ln -snfv ~/dotfiles/git/.gitconfig ~/.gitconfig
+	ln -snfv ~/dotfiles/git/.user.gitconfig ~/.user.gitconfig
 	ln -snfv ~/dotfiles/.gitignore_global ~/.gitignore_global
 	@echo "`date '+[%y-%m-%d %T]'` git done";
 

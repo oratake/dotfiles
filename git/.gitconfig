@@ -1,9 +1,10 @@
 [include]
-  path = .gitconfig.user
+  path = ~/.user.gitconfig
 [color]
   ui = auto
 [alias]
-  c  = commit -m
+  c  = commit
+  cm = commit -m
   co = checkout
   a  = add
   au = add -u

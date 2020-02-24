@@ -94,7 +94,8 @@ alias vv='vim ~/.config/nvim/'
 
 # git
 alias g='git'
-alias gc='git commit -m'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gco='git checkout'
 alias ga='git add'
 alias gau='git add -u'
