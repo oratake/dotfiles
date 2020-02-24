@@ -70,6 +70,11 @@ end
 
 # rbenv init - | source
 
+# go
+if [ -d $HOME"/go/bin/" ]
+  set PATH $HOME"/go/bin/" $PATH
+end
+
 # fisher
 if not functions -q fisher
   set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
