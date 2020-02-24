@@ -85,6 +85,21 @@ end
 # --------------------
 # powerline
 # --------------------
+function fish_prompt
+  eval powerline-go \
+    -error $status \
+    -cwd-max-depth 1 \
+    -cwd-mode plain \
+    -cwd-max-dir-size 1 \
+    -modules "newline,venv,cwd,perms,git,exit,newline,root" \
+    -shell bare
+end
+function fish_right_prompt
+  eval powerline-go \
+    # modules-right is not working.
+    -modules "time" \
+    -shell bare
+end
 # set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
 # powerline-setup
 
@@ -135,9 +150,9 @@ fish_vi_key_bindings
 # プロンプト
 # --------------------
 
-# # fish本来のviモードの表示をなくすオーバーライド
-# function fish_mode_prompt
-# end
+# fish本来のviモードの表示をなくすオーバーライド
+function fish_mode_prompt
+end
 
 # bobthefish
 # 左プロンプト
