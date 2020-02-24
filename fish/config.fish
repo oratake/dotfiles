@@ -61,6 +61,7 @@ set -x XDG_CACHE_HOME $HOME"/.cache"
 # 削除時 set -e 変数名
 
 # PATH通し
+# ==========
 # rbenv
 if [ -d $HOME"/.rbenv" ]
   set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths
@@ -85,9 +86,8 @@ end
 # --------------------
 # alias
 # --------------------
-
 alias vim='nvim'
-alias vi='/usr/local/bin/nvim'
+alias vi='vim'
 alias vf='vim ~/.config/fish/config.fish'
 alias sf='source ~/.config/fish/config.fish'
 alias vv='vim ~/.config/nvim/'

@@ -20,9 +20,9 @@ git:
 	ln -snfv ~/dotfiles/.gitignore_global ~/.gitignore_global
 	@echo "`date '+[%y-%m-%d %T]'` git done";
 
-# fish:
-# 	ln -snfv ~/dotfiles/fish/ ~/.config/fish/
-# 	@echo 'fish done'
+fish:
+	ln -snfv ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
+	@echo "`date '+[%y-%m-%d %T]'` fish done \nNOTE: Only config.fish";
 
 tmux:
 	ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
