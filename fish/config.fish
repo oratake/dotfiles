@@ -49,6 +49,29 @@ switch (uname -a)
     set PATH $HOME"/Library/Python/3.7/bin" $PATH
 
     # alias rm='trash'
+
+  case '*arch*Linux*'
+    # --------------------
+    # powerline
+    # --------------------
+    function fish_prompt
+      eval powerline-go \
+        -error $status \
+        -cwd-max-depth 1 \
+        -cwd-mode plain \
+        -cwd-max-dir-size 1 \
+        -modules "newline,venv,cwd,perms,git,exit,newline,root" \
+        -shell bare
+    end
+    function fish_right_prompt
+      eval powerline-go \
+        # modules-right is not working.
+        -modules "time" \
+	-mode flat \
+	-shell bare
+    end
+    # set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
+    # powerline-setup
 end
 
 # --------------------
@@ -81,27 +104,6 @@ if not functions -q fisher
   curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
   fish -c fisher
 end
-
-# --------------------
-# powerline
-# --------------------
-function fish_prompt
-  eval powerline-go \
-    -error $status \
-    -cwd-max-depth 1 \
-    -cwd-mode plain \
-    -cwd-max-dir-size 1 \
-    -modules "newline,venv,cwd,perms,git,exit,newline,root" \
-    -shell bare
-end
-function fish_right_prompt
-  eval powerline-go \
-    # modules-right is not working.
-    -modules "time" \
-    -shell bare
-end
-# set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
-# powerline-setup
 
 # --------------------
 # alias
