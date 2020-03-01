@@ -34,5 +34,5 @@ zsh:
 	@echo "`date '+[%y-%m-%d %T]'` zsh done";
 
 nvim:
-	ln -snfv ~/dotfiles/nvim/ ~/.config/nvim/
+	ln -snfv ~/dotfiles/vim/.config/nvim ~/.config/nvim
 	@echo "`date '+[%y-%m-%d %T]'` nvim done";
