@@ -67,6 +67,7 @@ switch (uname -a)
       eval powerline-go \
         # modules-right is not working.
         -modules "time" \
+        -mode flat \
         -shell bare
     end
     # set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
