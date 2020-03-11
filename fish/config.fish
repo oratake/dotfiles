@@ -72,6 +72,12 @@ switch (uname -a)
     end
     # set fish_function_path $fish_function_path $HOME"/Library/Python/3.7/lib/python/site-packages/powerline/bindings/fish"
     # powerline-setup
+
+    # --------------------
+    # arch aliases
+    # --------------------
+    alias sd="shutdown"
+
 end
 
 # --------------------
