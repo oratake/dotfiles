@@ -8,7 +8,7 @@ all:
 
 # MAIN
 .PHONY: init 
-.PHONY: git fish tmux zsh nvim check
+.PHONY: git fish tmux zsh nvim ideavim check
 init: git tmux zsh nvim
 
 # check:
@@ -36,3 +36,7 @@ zsh:
 nvim:
 	ln -snfv ~/dotfiles/vim/.config/nvim ~/.config/nvim
 	@echo "`date '+[%y-%m-%d %T]'` nvim done";
+
+ideavim:
+	ln -snfv ~/dotfiles/.ideavimrc ~/.ideavimrc
+	@echo "`date '+[%y-%m-%d %T]'` ideavimrc done";
