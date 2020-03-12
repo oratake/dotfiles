@@ -1,0 +1,64 @@
+" vim-surround
+set surround
+
+" idea search
+nnoremap / :<C-u>action Find<CR>
+
+" action back
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> <C-o>
+nnoremap <C-S-i> <C-i>
+
+set clipboard=unnamed
+" " 検索系、idea本体を使用
+" 検索するときに大文字小文字を区別しない
+" set ignorecase
+" 検索時に大文字を含んでいたら大/小を区別
+" set smartcase
+" インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
+" set incsearch
+" 検索対象をハイライト
+set hlsearch
+" Idea側の検索機能を使用
+nnoremap / :<C-u>action Find<CR>
+" 対応する括弧やブレースを表示
+set showmatch matchtime=1
+" メッセージ表示欄を2行確保
+set cmdheight=2
+" ステータス行を常に表示
+set laststatus=2
+" 行末のスペースを可視化
+set listchars=tab:^\ ,trail:~
+" 対応する括弧を強調表示
+set showmatch
+" Escの2回押しでハイライト消去
+nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+vnoremap x "_x
+" ペイン操作関係
+" https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sN :<C-u>bn<CR>
+nnoremap sP :<C-u>bp<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
