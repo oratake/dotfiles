@@ -77,6 +77,7 @@ switch (uname -a)
     # arch aliases
     # --------------------
     alias sd="shutdown"
+    alias va="nvim ~/.config/awesome/"
 
 end
 
