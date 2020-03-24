@@ -53,15 +53,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login
 
 # alacritty -d 80 40 &
 # exec i3 -V >> ~/.config/i3/i3log-$(date +'%F-%k-%M-%S') 2>&1
 
-albert &
+# init
 redshift -O 3400K &
+xset r rate 190 25 &
+# startup
+fcitx &
+albert &
+alacritty &
+google-chrome-stable &
+
 exec i3

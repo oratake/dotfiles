@@ -78,7 +78,9 @@ switch (uname -a)
     # --------------------
     alias sd="shutdown"
     alias va="nvim ~/.config/awesome/"
-
+    alias vx='vim ~/.xinitrc'
+    alias v3='vim ~/.config/i3/config'
+    alias wi="sudo wifi-menu"
 end
 
 # --------------------

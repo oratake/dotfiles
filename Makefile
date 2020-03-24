@@ -7,8 +7,8 @@ all:
 	@echo "Nothing to do."
 
 # MAIN
-.PHONY: init 
-.PHONY: git fish tmux zsh nvim ideavim check
+.PHONY: init
+.PHONY: git fish tmux zsh nvim ideavim xinit i3wm check
 init: git tmux zsh nvim
 
 # check:
@@ -40,3 +40,12 @@ nvim:
 ideavim:
 	ln -snfv ~/dotfiles/.ideavimrc ~/.ideavimrc
 	@echo "`date '+[%y-%m-%d %T]'` ideavimrc done";
+
+xinit:
+	ln -snfv ~/dotfiles/i3wm/.xinitrc ~/.xinitrc
+	@echo "`date '+[%y-%m-%d %T]'` xinitrc done";
+
+i3wm:
+	ln -snfv ~/dotfiles/i3wm/.xinitrc ~/.xinitrc
+	ln -snfv ~/dotfiles/i3wm/i3/config ~/.config/i3/config
+	@echo "`date '+[%y-%m-%d %T]'` i3, xinitrc done";
