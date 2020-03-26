@@ -183,3 +183,13 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# ====================
+# user setting
+# ====================
+
+bindsym $mod+n exec i3lock
+
+# LOCAL SETTING
+# Screen Shot
+bindsym Print exec gnome-screenshot -i
