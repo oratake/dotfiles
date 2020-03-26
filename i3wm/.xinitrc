@@ -60,6 +60,7 @@ fi
 # init
 redshift -O 3400K &
 xset r rate 190 25 &
+setxkbmap -option ctrl:nocaps &
 # startup
 fcitx &
 albert &
