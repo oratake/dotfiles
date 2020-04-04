@@ -188,7 +188,7 @@ bar {
 # user setting
 # ====================
 
-bindsym $mod+n exec i3lock
+bindsym $mod+n exec i3lock -c 000000
 
 # LOCAL SETTING
 # Screen Shot
