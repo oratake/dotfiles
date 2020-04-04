@@ -1,3 +1,5 @@
+" 参考 https://qiita.com/martini3oz/items/15442b5c574a726cd3bf
+set multiple-cursors
 " vim-surround
 set surround
 
