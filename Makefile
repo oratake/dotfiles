@@ -30,7 +30,7 @@ tmux:
 
 zsh:
 	ln -snfv ~/dotfiles/zsh/.zshrc ~/.zshrc
-	ln -snfv ~/dotfiles/zsh/.zsh_aliases ~/.shell_aliases
+	ln -snfv ~/dotfiles/.shell_aliases ~/.shell_aliases
 	@echo "`date '+[%y-%m-%d %T]'` zsh done";
 
 nvim:
