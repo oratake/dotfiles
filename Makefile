@@ -8,8 +8,8 @@ all:
 
 # MAIN
 .PHONY: init 
-.PHONY: git fish tmux zsh nvim ideavim check
-init: git tmux zsh nvim
+.PHONY: git fish tmux zsh nvim ideavim alacritty check
+init: git tmux zsh nvim alacritty
 
 # check:
 # 	@echo `date '+[%y-%m-%d %T]'`;
@@ -40,3 +40,8 @@ nvim:
 ideavim:
 	ln -snfv ~/dotfiles/.ideavimrc ~/.ideavimrc
 	@echo "`date '+[%y-%m-%d %T]'` ideavimrc done";
+
+alacritty:
+	mkdir -p ~/.config/alacritty/
+	ln -snfv ~/dotfiles/alacritty.yml ~/.config/alacritty/
+	@echo "`date '+[%y-%m-%d %T]'` alacritty done";
