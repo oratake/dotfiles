@@ -16,9 +16,9 @@ init: git tmux zsh nvim alacritty
 
 git:
 	ln -snfv ~/dotfiles/git/.gitconfig ~/.gitconfig
-	ln -snfv ~/dotfiles/git/.user.gitconfig ~/.user.gitconfig
 	ln -snfv ~/dotfiles/.gitignore_global ~/.gitignore_global
-	@echo "`date '+[%y-%m-%d %T]'` git done";
+	cp -n ~/dotfiles/git/.user.gitconfig ~/.user.gitconfig
+	@echo "`date '+[%y-%m-%d %T]'` git done\n[IMPORTANT] You need to add the user infomation into ~/.user.gitconfig";
 
 fish:
 	ln -snfv ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
