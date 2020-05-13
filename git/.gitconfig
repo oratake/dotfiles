@@ -19,7 +19,8 @@
   editor = nvim
   excludesfile = ~/.gitignore_global
   filemode = false
-  autocrlf = false
+  autocrlf = input
+  ignorecase = false
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
