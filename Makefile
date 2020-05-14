@@ -21,6 +21,7 @@ git:
 	@echo "`date '+[%y-%m-%d %T]'` git done\n[IMPORTANT] You need to add the user infomation into ~/.user.gitconfig";
 
 fish:
+	mkdir -p ~/.config/fish
 	ln -snfv ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 	@echo "`date '+[%y-%m-%d %T]'` fish done \nNOTE: Only config.fish";
 
@@ -34,6 +35,7 @@ zsh:
 	@echo "`date '+[%y-%m-%d %T]'` zsh done";
 
 nvim:
+	mkdir -p ~/.config
 	ln -snfv ~/dotfiles/vim/.config/nvim ~/.config/
 	@echo "`date '+[%y-%m-%d %T]'` nvim done";
 
