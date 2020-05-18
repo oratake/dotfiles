@@ -1,6 +1,13 @@
-# --------------------
-# INIT
-# --------------------
+# TMUX {{{
+
+if [[ -z "$TMUX" ]]; then
+  tmux new-session
+  exit
+fi
+
+# }}}
+
+# INIT {{{
 
 # # zplug
 # if [[ ! -d ~/.zplug ]];then
@@ -11,32 +18,31 @@
 # 
 # zplug "b4b4r07/enhancd", use:init.sh
 
-
 # export ENHANCD_COMMAND=ed
- 
-# --------------------
-# ALIASES
-# --------------------
+
+# }}}
+
+# ALIASES {{{
 
 if [ -f "${HOME}/.shell_aliases" ]; then
   source "${HOME}/.shell_aliases"
 fi
 
-# --------------------
-# AUTOCOMP
-# --------------------
+# }}}
+
+# AUTOCOMP {{{
 
 autoload -U compinit
 compinit
 
-setopt auto_list auto_menu list_packed list_types
+setopt auto_list auto_menu list_packed list_types share_history
 bindkey "^[[Z" reverse-menu-complete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 zstyle ':completion:*:default' menu select=2 # 補完候補をハイライト
 
-# --------------------
-# PROMPT
-# --------------------
+# }}}
+
+# PROMPT {{{
 
 # # powerline
 # zplug "bhilburn/powerlevel9k", use:"powerlevel9k.zsh-theme"
@@ -60,13 +66,14 @@ PROMPT="
 # 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# }}}
 
+# ANYENV {{{
 
-# --------------------
-# ANYENV
-# --------------------
 export PATH=$HOME/.anyenv/bin:$PATH
 
 if type -a anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
+
+# }}}
