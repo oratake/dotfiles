@@ -59,3 +59,14 @@ PROMPT="
 # 
 # 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+# --------------------
+# ANYENV
+# --------------------
+export PATH=$HOME/.anyenv/bin:$PATH
+
+if type -a anyenv >/dev/null 2>&1; then
+  eval "$(anyenv init -)"
+fi
