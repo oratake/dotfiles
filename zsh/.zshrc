@@ -1,8 +1,15 @@
 # TMUX {{{
 
-if [[ -z "$TMUX" ]]; then
-  tmux new-session
-  exit
+# tmuxセッションが存在しているときは、アタッチ
+# https://qiita.com/ssh0/items/a9956a74bff8254a606a
+if [[ ! -n $TMUX ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  ID="`echo $ID | $FZF | cut -d: -f1`"
+  tmux attach-session -t "$ID"
 fi
 
 # }}}
