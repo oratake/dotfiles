@@ -19,6 +19,10 @@ alias ll='ls -l --color=auto'
 # tmux
 alias t='tmux'
 
+# vagrant
+alias vup='vagrant up'
+alias vhl='vagrant halt'
+
 # git
 alias g='git'
 alias gc='git commit'
