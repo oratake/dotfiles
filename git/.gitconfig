@@ -16,7 +16,7 @@
   pl = pull
   m  = merge
 [core]
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore_global
   filemode = false
   autocrlf = input
