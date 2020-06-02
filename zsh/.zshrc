@@ -73,6 +73,13 @@ PROMPT="
 # 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Starship
+# https://starship.rs/ja-jp/
+if [[ $(command -v starship) ]]; then
+  eval "$(starship init zsh)"
+else
+  echo '[NOTICE] Starship is not installed.'
+fi
 # }}}
 
 # ANYENV {{{
