@@ -43,9 +43,31 @@ autoload -U compinit
 compinit
 
 setopt auto_list auto_menu list_packed list_types share_history
+#ディレクトリ名を補完すると、末尾がスラッシュになる。
+setopt AUTO_PARAM_SLASH
+#ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
+setopt MARK_DIRS
+#明確なドットの指定なしで.から始まるファイルをマッチ
+setopt GLOBDOTS
+#aliasを展開して補完
+unsetopt COMPLETE_ALIASES
+#rm *で確認
+setopt RM_STAR_WAIT
 bindkey "^[[Z" reverse-menu-complete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 zstyle ':completion:*:default' menu select=2 # 補完候補をハイライト
+
+autoload predict-on # 予測変換 on
+autoload history-search-end # 文中から補完をする
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+# }}}
+
+# OPTION {{{
+
+zstyle ':completion:*' insert-tab false # TABが入力されないように
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudoつけても補完
 
 # }}}
 
