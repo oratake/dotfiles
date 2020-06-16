@@ -1,5 +1,0 @@
-# gitignore設定
-# node_modulesの拒否
-node_modules/
-design_comp/
-docs/fonts/
