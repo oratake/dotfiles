@@ -66,6 +66,8 @@ zle -N history-beginning-search-forward-end history-search-end
 
 # OPTION {{{
 
+bindkey -v
+
 zstyle ':completion:*' insert-tab false # TABが入力されないように
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudoつけても補完
 
