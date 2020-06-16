@@ -29,10 +29,16 @@ fi
 
 # }}}
 
-# ALIASES {{{
+# IMPORT {{{
 
+# shell aliases
 if [ -f "${HOME}/.shell_aliases" ]; then
   source "${HOME}/.shell_aliases"
+fi
+
+# local import
+if [ -f "${HOME}/.zsh_local" ]; then
+  source "${HOME}/.zsh_local"
 fi
 
 # }}}
