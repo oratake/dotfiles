@@ -1,29 +1,27 @@
 # dotfiles
-setting files.
+my setting files.
 
-It is splitted by using app.  
-like...  
-- shell(fish)  
-- gulp  
-- tmux  
+- shell(fish or ~beef~ zsh)
+- terminal(alacritty)
+- tmux
 - vim(neovim)
 - powerline
 
 ## Usage
-RECOMMEND: Do not copy all. Pickup you needed.
+RECOMMEND: Makefile included. Do not copy all. Pickup you needed.
+
+```
+$ git clone https://github.com/oratake/dotfiles.git
+$ cd dotfiles
+$ make <PICKUP_YOU_NEEDED>
+```
 
 ### Version Management Policy
 
-|LANG|cmd|
-|:--|:--|
-|PHP|phpenv|
-|Ruby|rbenv|
-|Python|pyenv|
-|Node(npm)|n|
+anyenv
 
 ## OUTDATED
 I do not use and update these for now.
-- zsh
 - vimrc (using [neovim](https://neovim.io/) now)
 
 # Contact
