@@ -1,6 +1,3 @@
-
-
-"dein Scripts {{{
 if !&compatible
   set nocompatible
 endif
@@ -10,7 +7,7 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" dein settings {{{
+" DEIN SETTINGS {{{
 " dein自体の自動インストール
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
@@ -19,8 +16,6 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougodein.vim ' . shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir . "," . &runtimepath
-
-" }}}
 
 let s:dein_cache_dir =$XDG_CACHE_HOME . '/dein'
 let s:dein_config_dir =$XDG_CONFIG_HOME . '/nvim'
@@ -52,7 +47,6 @@ if dein#load_state(s:dein_cache_dir)
   call dein#add('osyo-manga/vim-watchdogs')
   call dein#add('mustardamus/jqapi', {'lazy':1})
   call dein#add('tokuhirom/jsref',   {'lazy':1})
-
 
   call dein#add('mikoto2000/buffer_selector.vim')
   noremap <Space><Space> <Esc>:call buffer_selector#OpenBufferSelector()<Enter>
@@ -86,7 +80,6 @@ elseif !has('nvim')
 endif
 
 " End dein Scripts-}}}
-
 
 if has("syntax")
   syntax on
