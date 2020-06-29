@@ -1,6 +1,6 @@
 
 
-"dein Scripts-----------------------------
+"dein Scripts {{{
 if !&compatible
   set nocompatible
 endif
@@ -85,7 +85,7 @@ elseif !has('nvim')
   call dein#load_toml(s:dein_config_dir.'/dein_no_nvim.toml', {'lazy': 0})
 endif
 
-"End dein Scripts-------------------------
+" End dein Scripts-}}}
 
 
 if has("syntax")
@@ -175,13 +175,10 @@ set ignorecase " 全て小文字なら大小文字区別なく検索
 set smartcase " 大文字があれば区別して検索
 
 " ビープ停止
-
 set visualbell t_vb= " 空にする
 set noerrorbells
 
-" --------------------
-" Keymaps
-" --------------------
+" Keymaps {{{
 " モード毎マップ参照 : https://yu8mada.com/2018/08/02/the-difference-between-nmap-and-nnoremap-in-vim/
 
 " Leader変更
@@ -317,6 +314,7 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
+" }}}
 
 " test
 " if has('wsl')

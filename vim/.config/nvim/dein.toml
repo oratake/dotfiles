@@ -2,8 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 # ====================
-# View, Colorscheme
-# ====================
+# VIEW, COLORSCHEME {{{
 [[plugins]]
 repo = 'phanviet/vim-monokai-pro'
 [[plugins]]
@@ -30,6 +29,7 @@ hook_add = '''
     \ 'colorscheme': 'wombat'
     \ }
 '''
+# }}}
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -223,7 +223,7 @@ hook_add = 'let g:liaded_matchparen = 1'
 repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
-# ヤンクしたときにカチッとする
+# ヤンクしたときにカチッとFlashする
 repo = 'machakann/vim-highlightedyank'
 hook_add = 'let g:highlightedyank_highlight_duration = 200'
 
