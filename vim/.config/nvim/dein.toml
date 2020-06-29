@@ -1,7 +1,3 @@
-# deinでのプラグイン管理について (https://leico.github.io/TechnicalNote/VimR/VimR-dein-toml
-# それっぽくするforPHP (https://qiita.com/crarrry/items/3e3f08d8c9b6c9daed11
-# TOML仕様解説jp (https://gist.github.com/minoritea/acde44feae7127c89873
-
 [[plugins]]
 repo = 'Shougo/dein.vim'
 

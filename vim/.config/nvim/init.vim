@@ -1,6 +1,3 @@
-" 参照各所
-" VimでJavaScript開発環境を作成 https://qiita.com/KazuakiM/items/21054883b57f895875c0
-" dein.vimによるプラグイン管理 Qiita （現行はこちらを使用したい） https://qiita.com/kawaz/items/ee725f6214f91337b42b
 
 
 "dein Scripts-----------------------------
