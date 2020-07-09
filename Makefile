@@ -18,7 +18,7 @@ git:
 	ln -snfv ~/dotfiles/git/.gitconfig ~/.gitconfig
 	ln -snfv ~/dotfiles/.gitignore_global ~/.gitignore_global
 	cp -n ~/dotfiles/git/.user.gitconfig ~/.user.gitconfig
-	@echo "`date '+[%y-%m-%d %T]'` git done\n[IMPORTANT] You need to add the user infomation into ~/.user.gitconfig";
+	@echo "`date '+[%y-%m-%d %T]'` git done\n[IMPORTANT] You need to add the user infomation into ~/.user.gitconfig\nCheck https://github.com/oratake/dotfiles/blob/master/README.md";
 
 fish:
 	mkdir -p ~/.config/fish
