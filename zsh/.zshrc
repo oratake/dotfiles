@@ -53,6 +53,7 @@ setopt auto_menu
 setopt list_packed
 setopt list_types
 setopt share_history
+setopt no_beep
 #ディレクトリ名を補完すると、末尾がスラッシュになる。
 setopt AUTO_PARAM_SLASH
 #ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
