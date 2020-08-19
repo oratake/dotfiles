@@ -48,7 +48,11 @@ fi
 autoload -U compinit
 compinit
 
-setopt auto_list auto_menu list_packed list_types share_history
+setopt auto_list
+setopt auto_menu
+setopt list_packed
+setopt list_types
+setopt share_history
 #ディレクトリ名を補完すると、末尾がスラッシュになる。
 setopt AUTO_PARAM_SLASH
 #ファイル名の展開でディレクトリにマッチした場合末尾に / を付加する
