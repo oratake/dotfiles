@@ -1,6 +1,5 @@
-" 参考 https://qiita.com/martini3oz/items/15442b5c574a726cd3bf
+" plugins 参考: https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 set multiple-cursors
-" vim-surround
 set surround
 
 " idea search
