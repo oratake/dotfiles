@@ -1,6 +1,7 @@
 " plugins 参考: https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
 set multiple-cursors
 set surround
+set easymotion
 
 " idea search
 nnoremap / :<C-u>action Find<CR>
@@ -63,3 +64,6 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
+
+" easymotion
+map <Space><Space> <Plug>(easymotion-prefix)
