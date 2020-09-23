@@ -120,6 +120,8 @@ fi
 # ANYENV {{{
 
 export PATH=$HOME/.anyenv/bin:$PATH
+# npmのグローバルでインストールしたもののPATH
+export PATH=$PATH:`npm bin -g` 
 
 if type -a anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
