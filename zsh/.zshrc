@@ -120,8 +120,12 @@ fi
 # ANYENV {{{
 
 export PATH=$HOME/.anyenv/bin:$PATH
-# npmのグローバルでインストールしたもののPATH
-export PATH=$PATH:`npm bin -g` 
+# npmのグローバルでインストールしたもののPATH通し
+if [[ $(command -v npm) ]]; then
+  export PATH=$PATH:`npm bin -g`
+else
+  echo '[NOTICE] NPM is not installed.'
+fi
 
 if type -a anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
