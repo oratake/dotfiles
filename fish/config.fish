@@ -179,3 +179,4 @@ set -g theme_display_git_untracked yes
 # command実行時間非表示
 set -g theme_display_cmd_duration no
 set -g theme_date_format "+%T"
+set -g fish_user_paths "/usr/local/opt/bison/bin" $fish_user_paths
