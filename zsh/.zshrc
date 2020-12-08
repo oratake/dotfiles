@@ -27,6 +27,15 @@ fi
 
 # export ENHANCD_COMMAND=ed
 
+# 履歴
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=10000
+# 重複を記録しない
+setopt hist_ignore_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+
 # }}}
 
 # IMPORT {{{
