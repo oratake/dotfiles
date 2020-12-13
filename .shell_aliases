@@ -8,6 +8,7 @@ alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
 alias vv='vim ~/.config/nvim/'
 alias v3='vim ~/.config/i3/config'
+alias va='vim ~/.shell_aliases'
 
 alias l='ls -ltr --color=auto'
 alias la='ls -la --color=auto'
