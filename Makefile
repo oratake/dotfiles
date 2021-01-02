@@ -8,7 +8,7 @@ all:
 
 # MAIN
 .PHONY: init 
-.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux check
+.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 check
 init: git tmux zsh nvim alacritty
 
 # check:
@@ -51,3 +51,7 @@ alacritty:
 archlinux:
 	ln -snfv ~/dotfiles/archlinux/.zsh_local ~/.zsh_local
 	@echo "`date '+[%y-%m-%d %T]'` archlinux done";
+
+i3:
+	ln -snfv ~/dotfiles/i3/config ~/.config/i3/config
+	@echo "`date '+[%y-%m-%d %T]'` i3 done";
