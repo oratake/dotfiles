@@ -10,16 +10,17 @@ alias vv='vim ~/.config/nvim/'
 alias v3='vim ~/.config/i3/config'
 alias va='vim ~/.shell_aliases'
 
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
 # %s/ls/exa/
 if [[ $(command -v exa) ]]; then
   alias ls='exa --icons --time-style=long-iso'
   alias l='ls -a'
   alias ll='ls -lgH'
   alias la='ls -lagH'
-  echo '[RECOMEND] ls is replaced exa.'
+else
+  echo '[RECOMEND] Use "exa" instead of "ls".'
+  alias l='ls -ltr --color=auto'
+  alias la='ls -la --color=auto'
+  alias ll='ls -l --color=auto'
 fi
 
 alias sd='sudo'
