@@ -1,0 +1,14 @@
+# DOCKER {{{
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+# }}}
+
+# Keyboard setting
+alias nocaps='setxkbmap -model jp106 -layout jp -option ctrl:nocaps'
+alias keyrepeat='xset r rate 190 25'
+alias hhkb='xmodmap ~/.xmodmap_hhkb'
+alias archiss='xmodmap ~/.xmodmap_archiss'
+alias thinkkeyon='xinput enable "AT Translated Set 2 keyboard"'
+alias thinkkeyoff='xinput disable "AT Translated Set 2 keyboard"'
+
+alias docker='sudo docker'
+alias docker-compose='sudo docker-compose'

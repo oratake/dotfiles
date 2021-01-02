@@ -8,7 +8,7 @@ all:
 
 # MAIN
 .PHONY: init 
-.PHONY: git fish tmux zsh nvim ideavim alacritty check
+.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux check
 init: git tmux zsh nvim alacritty
 
 # check:
@@ -47,3 +47,7 @@ alacritty:
 	mkdir -p ~/.config/alacritty/
 	ln -snfv ~/dotfiles/alacritty.yml ~/.config/alacritty/
 	@echo "`date '+[%y-%m-%d %T]'` alacritty done";
+
+archlinux:
+	ln -snfv ~/dotfiles/archlinux/.zsh_local ~/.zsh_local
+	@echo "`date '+[%y-%m-%d %T]'` archlinux done";
