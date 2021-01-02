@@ -19,6 +19,7 @@ if [[ $(command -v exa) ]]; then
   alias l='ls -a'
   alias ll='ls -lgH'
   alias la='ls -lagH'
+  echo '[RECOMEND] ls is replaced exa.'
 fi
 
 alias sd='sudo'
