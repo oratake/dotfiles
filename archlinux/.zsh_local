@@ -10,5 +10,5 @@ alias archiss='xmodmap ~/.xmodmap_archiss'
 alias thinkkeyon='xinput enable "AT Translated Set 2 keyboard"'
 alias thinkkeyoff='xinput disable "AT Translated Set 2 keyboard"'
 
-alias docker='sudo docker'
-alias docker-compose='sudo docker-compose'
+# alias docker='sudo docker'
+# alias docker-compose='sudo docker-compose'
