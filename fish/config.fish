@@ -93,8 +93,8 @@ set -x XDG_CACHE_HOME $HOME"/.cache"
 # PATH通し
 # ==========
 # anyenv
-if [ -d $HOME"/.anyenv" ]
-  set -U fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+if type -q anyenv
+  # set -U fish_user_paths $HOME/.anyenv/bin $fish_user_paths
   status --is-interactive; and source (anyenv init -|psub)
 end
 
