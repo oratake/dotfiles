@@ -7,8 +7,8 @@ all:
 	@echo "Nothing to do."
 
 # MAIN
-.PHONY: init 
-.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 check
+.PHONY: init
+.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 awesome check
 init: git tmux zsh nvim
 
 # check:
@@ -55,3 +55,8 @@ archlinux:
 i3:
 	ln -snfv ~/dotfiles/i3/config ~/.config/i3/config
 	@echo "`date '+[%y-%m-%d %T]'` i3 done";
+
+awesome:
+	mkdir -p ~/.config/awesome
+	ln -snfv ~/dotfiles/awesome/rc.lua ~/.config/awesome/rc.lua
+	@echo "`date '+[%y-%m-%d %T]'` awesome done";
