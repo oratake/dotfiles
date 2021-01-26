@@ -9,7 +9,7 @@ all:
 # MAIN
 .PHONY: init 
 .PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 check
-init: git tmux zsh nvim alacritty
+init: git tmux zsh nvim
 
 # check:
 # 	@echo `date '+[%y-%m-%d %T]'`;
