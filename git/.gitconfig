@@ -3,19 +3,20 @@
 [color]
   ui = auto
 [alias]
-  c  = commit
-  cm = commit -m
-  co = checkout
-  a  = add
-  au = add -u
-  aA = add -A
-  s  = status
-  d  = diff --color-words
-  l  = log --graph --decorate --oneline --color --all --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=format:'%y-%m-%d %T'
-  ps = push
-  pl = pull
-  m  = merge
-  b  = branch
+  c   = commit
+  cm  = commit -m
+  co  = checkout
+  a   = add
+  au  = add -u
+  aA  = add -A
+  s   = status
+  d   = diff --color-words
+  dca = diff --color-words --cached
+  l   = log --graph --decorate --oneline --color --all --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=format:'%y-%m-%d %T'
+  ps  = push
+  pl  = pull
+  m   = merge
+  b   = branch
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
