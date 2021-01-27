@@ -57,6 +57,9 @@ i3:
 	@echo "`date '+[%y-%m-%d %T]'` i3 done";
 
 awesome:
-	mkdir -p ~/.config/awesome
-	ln -snfv ~/dotfiles/awesome/rc.lua ~/.config/awesome/rc.lua
-	@echo "`date '+[%y-%m-%d %T]'` awesome done";
+	@if [ -d ~/.config/awesome/ ]; then \
+		echo "[WARNING] Awesome directory is already exist. Nothing to do."; \
+	else \
+		ln -snfv ~/dotfiles/awesome ~/.config/; \
+		echo "`date '+[%y-%m-%d %T]'` awesome done"; \
+	fi
