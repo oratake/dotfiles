@@ -18,6 +18,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- USER
+-- autorun.sh (cf. Archlinux wiki setting https://wiki.archlinux.jp/index.php/Awesome)
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -326,7 +330,15 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    -- USER
+    -- screenshot
+    awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("mate-screenshot -a") end,
+              {description = "mate-screenshot (capture area)", group = "client"}),
+    -- Lockscreen
+    awful.key({ modkey, "Shift" }, "/", function() awful.util.spawn("i3lock -c 000000") end,
+              {description = "Lock Screen", group = "client"})
 )
 
 clientkeys = gears.table.join(
