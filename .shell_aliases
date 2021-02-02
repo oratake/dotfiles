@@ -9,6 +9,7 @@ alias vz='vim ~/.zshrc'
 alias vv='vim ~/.config/nvim/'
 alias v3='vim ~/.config/i3/config'
 alias va='vim ~/.shell_aliases'
+alias vaw='vim ~/.config/awesome/rc.lua'
 
 # %s/ls/exa/
 if [[ $(command -v exa) ]]; then
