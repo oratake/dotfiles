@@ -19,6 +19,29 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- USER
+-- widget from https://chroju89.hatenablog.jp/entry/2014/09/28/093339
+-- 上のものの移動先 https://chroju.dev/blog/2014-09-28-post
+local vicious = require("vicious")
+--
+battxtwidget = wibox.widget.textbox()
+vicious.register(battxtwidget, vicious.widgets.bat, " 🔋: <span color='#ffffff'>$2%</span> ", 60, "BAT0")
+--
+soundwidget = wibox.widget.textbox()
+vicious.register(soundwidget, vicious.widgets.volume, " 🔊: <span color='#ffffff'>$1</span> ", 2, "Master")
+-- wifi反応せず。networkmanagerに使えるか検証の必要あるか
+-- wifiwidget = wibox.widget.textbox()
+-- vicious.register(wifiwidget, vicious.widgets.wifi, " Wi-Fi: <span color='#ffffff'>${ssid}</span> ", 60, "wlp4s0")
+-- このあたり使用せず。一応のこす
+-- -- Widgets that are aligned to the right
+-- local right_layout = wibox.layout.fixed.horizontal()
+-- -- if s == 1 then right_layout:add(wibox.widget.systray()) end
+-- right_layout:add(soundwidget)
+-- right_layout:add(battxtwidget)
+-- right_layout:add(wifiwidget)
+-- right_layout:add(mytextclock)
+-- right_layout:add(mylayoutbox[s])
+
+
 -- autorun.sh (cf. Archlinux wiki setting https://wiki.archlinux.jp/index.php/Awesome)
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
@@ -216,6 +239,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            battxtwidget,
+            soundwidget,
             mytextclock,
             s.mylayoutbox,
         },
