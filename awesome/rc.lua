@@ -338,7 +338,12 @@ globalkeys = gears.table.join(
               {description = "mate-screenshot (capture area)", group = "client"}),
     -- Lockscreen
     awful.key({ modkey, "Shift" }, "/", function() awful.util.spawn("i3lock -c 000000") end,
-              {description = "Lock Screen", group = "client"})
+              {description = "Lock Screen", group = "client"}),
+    -- Brightness Controle
+    awful.key({         }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight - 5") end),
+    awful.key({         }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight + 5") end),
+    awful.key({ "Shift" }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight - 20") end),
+    awful.key({ "Shift" }, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight + 20") end)
 )
 
 clientkeys = gears.table.join(
