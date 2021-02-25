@@ -23,11 +23,18 @@ require("awful.hotkeys_popup.keys")
 -- 上のものの移動先 https://chroju.dev/blog/2014-09-28-post
 local vicious = require("vicious")
 --
+cpuwidget = wibox.widget.textbox()
+tempwidget = wibox.widget.textbox()
+memorywidget = wibox.widget.textbox()
+vicious.register(cpuwidget, vicious.widgets.cpu, " 💻<span color='#ffffff'>$1%</span>", 1)
+vicious.register(tempwidget, vicious.widgets.thermal, " 🔥$1℃", 1, {'thermal_zone0', 'sys'})
+vicious.register(memorywidget, vicious.widgets.mem, " 🧮$2/$3", 1)
+--
 battxtwidget = wibox.widget.textbox()
-vicious.register(battxtwidget, vicious.widgets.bat, " 🔋: <span color='#ffffff'>$2%</span> ", 60, "BAT0")
+vicious.register(battxtwidget, vicious.widgets.bat, " 🔋<span color='#ffffff'>$2%</span> $3 ", 60, "BAT0")
 --
 soundwidget = wibox.widget.textbox()
-vicious.register(soundwidget, vicious.widgets.volume, " 🔊: <span color='#ffffff'>$1</span> ", 2, "Master")
+vicious.register(soundwidget, vicious.widgets.volume, " 🔊<span color='#ffffff'>$1</span>$2 ", 2, "Master")
 -- wifi反応せず。networkmanagerに使えるか検証の必要あるか
 -- wifiwidget = wibox.widget.textbox()
 -- vicious.register(wifiwidget, vicious.widgets.wifi, " Wi-Fi: <span color='#ffffff'>${ssid}</span> ", 60, "wlp4s0")
@@ -73,6 +80,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init("~/.config/awesome/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -239,6 +247,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            cpuwidget,
+            tempwidget,
+            memorywidget,
             battxtwidget,
             soundwidget,
             mytextclock,
