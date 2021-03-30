@@ -1,5 +1,8 @@
 # DOCKER {{{
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+# export DOCKERD_FLAGS='-H tcp://0.0.0.0:2376'
+# export DOCKERD_ROOTLESS_ROOTLESSKIT_FLAGS="-p 0.0.0.0:2376:2376/tcp"
+# export DOCKER_HOST=unix:///var/run/docker.sock
 # }}}
 
 # Keyboard setting
@@ -13,3 +16,4 @@ alias lock='i3lock -c 000000'
 
 # alias docker='sudo docker'
 # alias docker-compose='sudo docker-compose'
+
