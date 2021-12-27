@@ -19,7 +19,7 @@
   b   = branch
 [core]
   editor = vim
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/takenaka/.gitignore_global
   filemode = false
   autocrlf = input
   ignorecase = false
@@ -28,3 +28,6 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[user]
+	name = oratake
+	email = smith.shimomura@gmail.com
