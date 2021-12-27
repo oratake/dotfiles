@@ -121,11 +121,24 @@ end
 # --------------------
 # alias
 # --------------------
-alias vim='nvim'
+# vim
+alias v='vim'
 alias vi='vim'
-alias vf='vim ~/.config/fish/config.fish'
+alias vim='nvim'
+
+# env integration
+alias sz='source ~/.zshrc'
 alias sf='source ~/.config/fish/config.fish'
+alias vf='vim ~/.config/fish/config.fish'
+alias vz='vim ~/.zshrc'
 alias vv='vim ~/.config/nvim/'
+alias va='vim ~/.shell_aliases'
+
+# exa
+alias ls='exa --icons --time-style=long-iso'
+alias l='ls -a'
+alias ll='ls -lgH'
+alias la='ls -lagH'
 
 # git
 alias g='git'
