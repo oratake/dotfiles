@@ -1,5 +1,5 @@
-[[plugins]]
-repo = 'Shougo/dein.vim'
+# [[plugins]]
+# repo = 'Shougo/dein.vim'
 
 # ====================
 # VIEW, COLORSCHEME {{{
@@ -370,3 +370,64 @@ hook_add = '''
   map p <Plug>(miniyank-autoput)
   map P <Plug>(miniyank-autoPut)
 '''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'KazuakiM/neosnippet-snippets'
+
+[[plugins]]
+repo = 'KazuakiM/vim-qfstatusline'
+
+[[plugins]]
+repo = 'mojako/ref-sources.vim'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+
+# [[plugins]]
+# repo = 'Shougo/vimproc.vim', {'build': 'make'}
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-watchdogs'
+
+# [[plugins]]
+# repo = 'mustardamus/jqapi', {'lazy':1}
+
+# [[plugins]]
+# repo = 'tokuhirom/jsref',   {'lazy':1}
+
+# [[plugins]]
+# repo = 'mikoto2000/buffer_selector.vim'
+# 
+# noremap <Space><Space> <Esc>:call buffer_selector#OpenBufferSelector()<Enter>
+
+# " call dein#add('autozimu/LanguageClient-neovim', {
+# "     \ 'rev': 'next',
+# "     \ 'build': 'bash install.sh',
+# "     \ })
+# " let g:LanguageClient_serverCommands = {
+# "     \ 'php': [''],
+# "     \ }
+# " nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+# " nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+# " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

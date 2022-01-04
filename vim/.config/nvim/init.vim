@@ -3,60 +3,35 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" DEIN SETTINGS {{{
-" dein自体の自動インストール
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougodein.vim ' . shellescape(s:dein_repo_dir))
+let s:config_home = empty($XDG_CONFIG_HOME) ? expand('~/.config') : $XDG_CONFIG_HOME
+let s:dein_cache_dir = s:cache_home . '/dein'
+let s:nvim_config_dir = s:config_home . '/nvim'
+let s:dein_repo_dir = s:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    " dein自体の自動インストール
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+    " execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . s:dein_repo_dir
+  " let &runtimepath = s:dein_repo_dir . "," . &runtimepath
 endif
-let &runtimepath = s:dein_repo_dir . "," . &runtimepath
 
-let s:dein_cache_dir =$XDG_CACHE_HOME . '/dein'
-let s:dein_config_dir =$XDG_CONFIG_HOME . '/nvim'
-
+" DEIN SETTINGS {{{
 if dein#load_state(s:dein_cache_dir)
   call dein#begin(s:dein_cache_dir)
 
 " Let dein manage dein
-  call dein#add(s:dein_cache_dir.'/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add(s:dein_repo_dir)
 
-  call dein#load_toml(s:dein_config_dir.'/dein.toml', {'lazy': 0})
-  call dein#load_toml(s:dein_config_dir.'/dein_lazy.toml', {'lazy': 1})
-  
+  call dein#load_toml(s:nvim_config_dir.'/dein.toml', {'lazy': 0})
+  call dein#load_toml(s:nvim_config_dir.'/dein_lazy.toml', {'lazy': 1})
 
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-
-  call dein#add('KazuakiM/neosnippet-snippets')
-  call dein#add('KazuakiM/vim-qfstatusline')
-  call dein#add('mojako/ref-sources.vim')
-  call dein#add('pangloss/vim-javascript')
-  " call dein#add('Shougo/neocomplete.vim') " OUTDATED -> deoplete
-  call dein#add('Shougo/neoinclude.vim')
-  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('thinca/vim-ref')
-  call dein#add('vim-scripts/taglist.vim')
-  call dein#add('osyo-manga/shabadou.vim')
-  call dein#add('osyo-manga/vim-watchdogs')
-  call dein#add('mustardamus/jqapi', {'lazy':1})
-  call dein#add('tokuhirom/jsref',   {'lazy':1})
-
-  call dein#add('mikoto2000/buffer_selector.vim')
-  noremap <Space><Space> <Esc>:call buffer_selector#OpenBufferSelector()<Enter>
-
-" call dein#add('autozimu/LanguageClient-neovim', {
-"     \ 'rev': 'next',
-"     \ 'build': 'bash install.sh',
-"     \ })
-" let g:LanguageClient_serverCommands = {
-"     \ 'php': [''],
-"     \ }
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+  if has('wsl')
+    call dein#load_toml(s:nvim_config_dir.'/init_local.vim')
+  endif
 
   call map(dein#check_clean(), "delete(v:val,'rf')")
 
@@ -72,7 +47,7 @@ endif
 if dein#check_install()
   call dein#install()
 elseif !has('nvim')
-  call dein#load_toml(s:dein_config_dir.'/dein_no_nvim.toml', {'lazy': 0})
+  call dein#load_toml(s:nvim_config_dir.'/dein_no_nvim.toml', {'lazy': 0})
 endif
 
 " End dein Scripts-}}}
@@ -307,8 +282,3 @@ call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 " }}}
-
-" test
-" if has('wsl')
-source $XDG_CONFIG_HOME/nvim/init_local.vim
-" endif
