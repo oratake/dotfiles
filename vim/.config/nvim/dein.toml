@@ -11,7 +11,7 @@ repo = 'benjaminwhite/Benokai'
 repo = 'jpo/vim-railscasts-theme'
 [[plugins]]
 repo = 'dracula/vim'
-name = 'dracula'
+name = 'dracula' # リポジトリ名がvimでカラースキーマの指定するのアレなのでas指定
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 [[plugins]]
@@ -21,6 +21,7 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'oka-h/yozakura.vim'
 
+# LightLineのカラースキーム
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -125,16 +126,14 @@ hook_add = '''
 # " defx Config: end -------------------
 # '''
 
-[[plugins]]
-# コーディング記録
+[[plugins]] # コーディング記録
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
 repo = 'posva/vim-vue'
 hook_source = 'autocmd FileType vue syntax sync fromstart'
 
-[[plugins]]
-# キーバインド連打補助
+[[plugins]] # キーバインド連打補助
 repo = 'kana/vim-submode'
 
 [[plugins]]
@@ -222,13 +221,11 @@ hook_add = 'let g:liaded_matchparen = 1'
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 
-[[plugins]]
-# ヤンクしたときにカチッとFlashする
+[[plugins]] # ヤンクしたときにカチッとFlashする
 repo = 'machakann/vim-highlightedyank'
 hook_add = 'let g:highlightedyank_highlight_duration = 200'
 
-[[plugins]]
-# git on vim
+[[plugins]] # git on vim
 repo = 'tpope/vim-fugitive'
 
 # [[plugins]]
@@ -290,9 +287,9 @@ repo = 'tpope/vim-fugitive'
 #   nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 # '''
 
+[[plugins]]
 # fuzzy finder系
 # 参考: https://meteora.work/vim-dein-fzf
-[[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
 [[plugins]]
@@ -363,8 +360,7 @@ repo = 'neoclide/coc.nvim'
 merge = 0
 build = './install.sh nightly'
 
-# 矩形挿入バグ修正
-[[plugins]]
+[[plugins]] # 矩形挿入バグ修正
 repo = 'bfredl/nvim-miniyank'
 hook_add = '''
   map p <Plug>(miniyank-autoput)
