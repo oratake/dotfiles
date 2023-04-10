@@ -140,7 +140,7 @@ set visualbell t_vb= " 空にする
 set noerrorbells
 
 " 折りたたみ挙動 folding
-autocmd FileType vim setlocal foldmethod=marker
+" autocmd FileType vim setlocal foldmethod=marker
 
 " Keymaps {{{
 " モード毎マップ参照 : https://yu8mada.com/2018/08/02/the-difference-between-nmap-and-nnoremap-in-vim/

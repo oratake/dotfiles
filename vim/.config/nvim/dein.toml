@@ -131,9 +131,10 @@ hook_add = '''
 [[plugins]] # コーディング記録
 repo = 'wakatime/vim-wakatime'
 
-[[plugins]]
-repo = 'posva/vim-vue'
-hook_source = 'autocmd FileType vue syntax sync fromstart'
+# deprecated
+# [[plugins]]
+# repo = 'posva/vim-vue'
+# hook_source = 'autocmd FileType vue syntax sync fromstart'
 
 [[plugins]] # キーバインド連打補助
 repo = 'kana/vim-submode'
@@ -376,8 +377,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+# deprecated
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'KazuakiM/neosnippet-snippets'
