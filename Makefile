@@ -8,7 +8,7 @@ all:
 
 # MAIN
 .PHONY: init
-.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 awesome check
+.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 awesome check astronvim
 init: git tmux zsh nvim
 
 # check:
@@ -63,3 +63,7 @@ awesome:
 		ln -snfv ~/dotfiles/awesome ~/.config/; \
 		echo "`date '+[%y-%m-%d %T]'` awesome done"; \
 	fi
+
+astronvim:
+	ln -snfv ~/dotfiles/vim/astronvim/user/ ~/.config/nvim/lua/
+	@echo "`date '+[%y-%m-%d %T]'` AstroNvim done";
