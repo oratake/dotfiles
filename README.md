@@ -23,14 +23,18 @@ anyenv
 
 ### git
 Add your environment info in `$HOME/.user.gitconfig` like this.  
-In ArchLinux, you need credential like below. Install with `libsecret`.
+If you config
 
-```
+```gitconfig
 [user]
   name = <GITHUB_USERNAME>
   email = <GITHUB_EMAIL>
-[credential]
-  helper = /usr/lib/git-core/git-credential-libsecret
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.23.0/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.23.0/bin/gh auth git-credential
 ```
 
 ## OUTDATED
@@ -39,3 +43,7 @@ I do not use and update these for now.
 
 # Contact
 Twitter [@kyosuketakenaka](https://twitter.com/kyosuketakenaka)
+
+# Disclaimer(免責)
+このリポジトリの内容を使用して生じた如何なる不具合や損害について一切の責任を負いません。あくまで参考としてご利用ください。
+I do not accept any responsibility for events or damages arising from the use of this repository.
