@@ -21,7 +21,7 @@
   b   = branch
 [core]
   editor = vim
-	excludesfile = /Users/takenaka/.gitignore_global
+  # excludesfile = ./.gitignore_global
   filemode = false
   autocrlf = input
   ignorecase = false
@@ -30,4 +30,3 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
-
