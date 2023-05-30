@@ -1,3 +1,5 @@
 [user]
   name = 
   email = 
+
+# github cliのcredentialもこちらのgitconfigにて管理
