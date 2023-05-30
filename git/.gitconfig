@@ -1,3 +1,5 @@
+[init]
+  defaultBranch = deploy
 [include]
   path = ~/.user.gitconfig
 [color]
