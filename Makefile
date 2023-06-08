@@ -66,5 +66,6 @@ awesome:
 	fi
 
 astronvim:
+	git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 	ln -snfv ~/dotfiles/vim/astronvim/user/ ~/.config/nvim/lua/
 	@echo "`date '+[%y-%m-%d %T]'` AstroNvim done";
