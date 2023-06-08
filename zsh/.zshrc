@@ -141,3 +141,10 @@ if type -a anyenv >/dev/null 2>&1; then
 fi
 
 # }}}
+
+# rust
+if [[ $(command -v cargo) ]]; then
+  export PATH=$HOME/.cargo/bin:$PATH
+else
+  echo '[NOTICE] Cargo(Rust) is not installed.'
+fi
