@@ -21,6 +21,9 @@ $ make <PICKUP_YOU_NEEDED>
 
 anyenv
 
+### zsh
+package manager: sheldon
+
 ### git
 Add your environment info in `$HOME/.user.gitconfig` like this.  
 If you config
