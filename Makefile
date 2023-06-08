@@ -27,6 +27,7 @@ fish:
 
 tmux:
 	ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	@echo "`date '+[%y-%m-%d %T]'` tmux done";
 
 zsh:
