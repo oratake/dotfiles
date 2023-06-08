@@ -25,6 +25,8 @@
   filemode = false
   autocrlf = input
   ignorecase = false
+[init]
+  defaultBranch = "main"
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
