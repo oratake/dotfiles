@@ -5,6 +5,10 @@ return {
     ["<Leader>,r"] = { "<cmd>AstroReload<cr>", desc = "Reload AstroNvim conf" },
     ["<Leader>,e"] = { "<cmd>e ~/.config/nvim/lua/user/<cr>", desc = "User config dir." },
 
+    -- yank
+    ["x"] = { "\"_x", desc = "x not yank" },
+    ["Y"] = { "y$", desc = "Yank to the end of the line" },
+
     -- screen control
     ["s"] = { "<Nop>", name = "Screen control" },
     ["sj"] = { "<C-w>j", desc = "Move down" },
@@ -20,5 +24,8 @@ return {
     ["sp"] = { "gT", desc = "Prev tab" },
     ["sN"] = { "<cmd>bn<cr>", desc = "Next Buffer" },
     ["sP"] = { "<cmd>bp<cr>", desc = "Prev Buffer" },
+  },
+  i = {
+    ["<C-]>"] = { "<Esc><Right>", desc = "" },
   },
 }
