@@ -126,25 +126,19 @@ else
 fi
 # }}}
 
-# ANYENV {{{
-
-export PATH=$HOME/.anyenv/bin:$PATH
-# npmのグローバルでインストールしたもののPATH通し
-if [[ $(command -v npm) ]]; then
-  export PATH=$PATH:`npm bin -g`
+# asdf {{{
+if [ -e "/opt/asdf-vm/asdf.sh" ]; then
+  # for pacman path
+  . /opt/asdf-vm/asdf.sh
 else
-  echo '[NOTICE] NPM is not installed.'
+  echo '[NOTICE] Runtime Version Manager "asdf" is not installed.'
 fi
-
-if type -a anyenv >/dev/null 2>&1; then
-  eval "$(anyenv init -)"
-fi
-
 # }}}
 
-# rust
-if [[ $(command -v cargo) ]]; then
+# rust {{{
+if command -v cargo >/dev/null 2>&1; then
   export PATH=$HOME/.cargo/bin:$PATH
 else
   echo '[NOTICE] Cargo(Rust) is not installed.'
 fi
+# }}}
