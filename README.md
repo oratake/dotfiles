@@ -20,6 +20,10 @@ $ make <PICKUP_YOU_NEEDED>
 ~~anyenv~~
 asdf
 
+### Freqent Use
+
+AUR(ArchLinux User Repository) manager: paru
+
 ### zsh
 package manager: sheldon
 
