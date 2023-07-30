@@ -8,7 +8,7 @@ all:
 
 # MAIN
 .PHONY: init
-.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 awesome check astronvim
+.PHONY: git fish tmux zsh nvim ideavim alacritty archlinux i3 awesome check astronvim sheldon
 init: git tmux zsh nvim
 
 # check:
@@ -34,6 +34,10 @@ zsh:
 	ln -snfv ~/dotfiles/zsh/.zshrc ~/.zshrc
 	ln -snfv ~/dotfiles/.shell_aliases ~/.shell_aliases
 	@echo "`date '+[%y-%m-%d %T]'` zsh done";
+
+sheldon:
+	ln -snfv ~/dotfiles/sheldon/plugins.toml ~/.config/sheldon/
+	@echo "`date '+[%y-%m-%d %T]'` sheldon done";
 
 nvim:
 	mkdir -p ~/.config
