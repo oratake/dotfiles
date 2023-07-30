@@ -1,12 +1,10 @@
 # dotfiles
 my setting files.
 
-- shell(fish or ~beef~ zsh)
-- terminal(alacritty)
+- shell(zsh)
 - tmux
-- vim(neovim)
+- neovim([astronvim](https://astronvim.com/))
 - i3(window manager)
-- awesome(window manager)
 
 ## Usage
 RECOMMEND: Makefile included. Do not copy all. Pickup you needed.
@@ -19,7 +17,8 @@ $ make <PICKUP_YOU_NEEDED>
 
 ### Version Management Policy
 
-anyenv
+~~anyenv~~
+asdf
 
 ### zsh
 package manager: sheldon
