@@ -1,5 +1,4 @@
 # TMUX {{{
-
 # tmuxセッションが存在しているときは、アタッチ
 # https://qiita.com/ssh0/items/a9956a74bff8254a606a
 if [[ ! -n $TMUX ]]; then
@@ -11,22 +10,9 @@ if [[ ! -n $TMUX ]]; then
   ID="`echo $ID | $FZF | cut -d: -f1`"
   tmux attach-session -t "$ID"
 fi
-
 # }}}
 
 # INIT {{{
-
-# # zplug
-# if [[ ! -d ~/.zplug ]];then
-#   git clone https://github.com/zplug/zplug.git ~/.zplug
-# fi
-# 
-# source ~/.zplug/init.zsh
-# 
-# zplug "b4b4r07/enhancd", use:init.sh
-
-# export ENHANCD_COMMAND=ed
-
 # 履歴
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
@@ -35,11 +21,9 @@ export SAVEHIST=10000
 setopt hist_ignore_dups
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
-
 # }}}
 
 # IMPORT {{{
-
 # shell aliases
 if [ -f "${HOME}/.shell_aliases" ]; then
   source "${HOME}/.shell_aliases"
@@ -49,11 +33,9 @@ fi
 if [ -f "${HOME}/.zsh_local" ]; then
   source "${HOME}/.zsh_local"
 fi
-
 # }}}
 
 # AUTOCOMP {{{
-
 autoload -U compinit
 compinit
 
@@ -81,34 +63,17 @@ autoload predict-on # 予測変換 on
 autoload history-search-end # 文中から補完をする
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-
 # }}}
 
 # OPTION {{{
-
 bindkey -v
 
 zstyle ':completion:*' insert-tab false # TABが入力されないように
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudoつけても補完
-
 # }}}
 
 # PROMPT {{{
-
-# # powerline
-# zplug "bhilburn/powerlevel9k", use:"powerlevel9k.zsh-theme"
-# POWERLEVEL9K_PROMOT_ON_NEWLINE=true
-# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline vcs)
-# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
 autoload -Uz colors && colors
-
-PROMPT="
-%(?.%{${fg[green]}%}.%{${fg[red]}%})%n${reset_color}@${fg[blue]}%m${reset_color} %~
-%# "
-# 
-# RPROMPT="[%W %*]"
 
 # zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # 
