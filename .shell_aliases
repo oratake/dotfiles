@@ -6,9 +6,11 @@ alias vim='nvim'
 # env integration
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
+alias vzl='vim ~/.zsh_local'
 alias vv='vim ~/.config/nvim/'
 alias v3='vim ~/.config/i3/config'
 alias va='vim ~/.shell_aliases'
+alias vx='vim ~/.xinitrc'
 alias vaw='vim ~/.config/awesome/rc.lua'
 
 # %s/ls/exa/
