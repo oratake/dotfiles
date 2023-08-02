@@ -92,11 +92,19 @@ fi
 # }}}
 
 # asdf {{{
-if [ -e "/opt/asdf-vm/asdf.sh" ]; then
-  # for pacman path
-  . /opt/asdf-vm/asdf.sh
+# if [ -e "/opt/asdf-vm/asdf.sh" ]; then
+#   # for pacman path
+#   . /opt/asdf-vm/asdf.sh
+# else
+#   echo '[NOTICE] Runtime Version Manager "asdf" is not installed.'
+# fi
+# }}}
+
+# rtx {{{
+if command -v rtx >/dev/null 2>&1; then
+  eval "$(rtx activate zsh)"
 else
-  echo '[NOTICE] Runtime Version Manager "asdf" is not installed.'
+  echo '[NOTICE] Runtime Version Manager "rtx" is not installed.'
 fi
 # }}}
 
