@@ -61,8 +61,7 @@ alias rt='rails test'
 
 # docker
 alias d='docker'
-alias dc='docker container'
-alias d-c='docker-compose'
+alias dc='docker compose'
 
 # heroku
 alias h='heroku'
