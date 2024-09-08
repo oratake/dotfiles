@@ -108,12 +108,12 @@ else
 fi
 # }}}
 
-# rtx {{{
-# rtxはasdf同様、ランタイムバージョン管理用ツール
+# mise {{{
+# miseはasdf同様、ランタイムバージョン管理用ツール
 # cargoから入れてるので、以下は必ずcargoのPATH通った後に実行
-if command -v rtx >/dev/null 2>&1; then
-  eval "$(rtx activate zsh)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
 else
-  echo '[NOTICE] Runtime Version Manager "rtx" is not installed.'
+  echo '[NOTICE] Runtime Version Manager "mise" is not installed.'
 fi
-# }}}
+  # }}}
