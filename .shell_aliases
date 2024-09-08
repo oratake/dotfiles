@@ -13,14 +13,14 @@ alias va='vim ~/.shell_aliases'
 alias vx='vim ~/.xinitrc'
 alias vaw='vim ~/.config/awesome/rc.lua'
 
-# %s/ls/exa/
-if [[ $(command -v exa) ]]; then
-  alias ls='exa --icons --time-style=long-iso'
+# %s/ls/eza/
+if [[ $(command -v eza) ]]; then
+  alias ls='eza --icons --time-style=long-iso'
   alias l='ls -a'
   alias ll='ls -lgH'
   alias la='ls -lagH'
 else
-  echo '[RECOMEND] Use "exa" instead of "ls".'
+  echo '[RECOMEND] Use "eza" instead of "ls".'
   alias l='ls -ltr --color=auto'
   alias la='ls -la --color=auto'
   alias ll='ls -l --color=auto'
