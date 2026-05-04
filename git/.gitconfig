@@ -25,6 +25,7 @@
   filemode = false
   autocrlf = input
   ignorecase = false
+  quotepath = false
 [init]
   defaultBranch = "main"
 [filter "lfs"]
