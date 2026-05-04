@@ -1,16 +1,17 @@
-# TMUX {{{
-# tmuxセッションが存在しているときは、アタッチ
-# https://qiita.com/ssh0/items/a9956a74bff8254a606a
-if [[ ! -n $TMUX ]]; then
-  # get the IDs
-  ID="`tmux list-sessions`"
-  if [[ -z "$ID" ]]; then
-    tmux new-session
-  fi
-  ID="`echo $ID | $FZF | cut -d: -f1`"
-  tmux attach-session -t "$ID"
-fi
-# }}}
+# warp使うようにコメントアウト
+# # TMUX {{{
+# # tmuxセッションが存在しているときは、アタッチ
+# # https://qiita.com/ssh0/items/a9956a74bff8254a606a
+# if [[ ! -n $TMUX ]]; then
+#   # get the IDs
+#   ID="`tmux list-sessions`"
+#   if [[ -z "$ID" ]]; then
+#     tmux new-session
+#   fi
+#   ID="`echo $ID | $FZF | cut -d: -f1`"
+#   tmux attach-session -t "$ID"
+# fi
+# # }}}
 
 # INIT {{{
 # 履歴
@@ -117,3 +118,20 @@ else
   echo '[NOTICE] Runtime Version Manager "mise" is not installed.'
 fi
   # }}}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/oratake/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oratake/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/oratake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oratake/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/oratake/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# Added by Antigravity
+export PATH="/Users/oratake/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
