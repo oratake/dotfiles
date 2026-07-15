@@ -135,3 +135,9 @@ compinit
 # Added by Antigravity
 export PATH="/Users/oratake/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/oratake/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH="/Users/oratake/.bun/bin:$PATH"
