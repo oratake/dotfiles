@@ -1,14 +1,17 @@
 {
-  "mcpServer":{
-    "searxng": {
-      "command": "npx",
-      "args": ["-y", "mcp-searxng"],
-      "env": {
-        "SEARXNG_URL": "http://localhost:3020"
-      }
-    }
-  },
+  "model": "qwen/qwen3.6-35b-a3b",
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "serena-hooks activate --client=claude-code"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "matcher": "",
@@ -16,6 +19,15 @@
           {
             "type": "command",
             "command": "echo '{\"cwd\": \"'\"$(pwd)\"'\", \"notification_type\": \"stop\"}' | ~/.claude/notify.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "serena-hooks cleanup --client=claude-code"
           }
         ]
       }
@@ -32,6 +44,24 @@
       }
     ],
     "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "serena-hooks remind --client=claude-code"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__serena__*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "serena-hooks auto-approve --client=claude-code"
+          }
+        ]
+      },
       {
         "matcher": "Bash",
         "hooks": [
@@ -51,5 +81,27 @@
     "typescript-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
-  "plansDirectory": "./plans"
+  "effortLevel": "medium",
+  "plansDirectory": "./plans",
+  "mcpServer": {
+    "searxng": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-searxng"
+      ],
+      "env": {
+        "SEARXNG_URL": "http://localhost:3020"
+      }
+    },
+    "serena": {
+      "command": "serena",
+      "args": [
+        "start-mcp-server",
+        "--context",
+        "claude-code",
+        "--project-from-cwd"
+      ]
+    }
+  }
 }
