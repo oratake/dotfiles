@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -44,7 +44,8 @@ return {
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-        wrap = false, -- sets vim.opt.wrap
+        wrap = true, -- sets vim.opt.wrap
+        linebreak = true, --不自然な位置での改行を阻止
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -79,6 +80,24 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+
+        -- -- -- -- --
+        -- USER定義
+        -- -- -- -- --
+        -- ["s"] = { false, name = "Window/Split" },
+        -- ["s"] = { "<Nop>", desc = "Window/Split" },
+        ["s"] = { function() end, desc = "Window/Split" },
+
+        -- 2. 各キーマップと説明（desc）の設定
+        ["sq"] = { ":q<CR>", desc = "Quit window" },
+        ["ss"] = { ":split<CR>", desc = "Horizontal split" },
+        ["sv"] = { ":vsplit<CR>", desc = "Vertical split" },
+        ["sh"] = { "<C-w>h", desc = "Move to left window" },
+        ["sj"] = { "<C-w>j", desc = "Move to bottom window" },
+        ["sk"] = { "<C-w>k", desc = "Move to top window" },
+        ["sl"] = { "<C-w>l", desc = "Move to right window" },
+        ["sn"] = { "<C-w>w", desc = "Next window" },
+        ["sp"] = { "<C-w>W", desc = "Previous window" },
       },
     },
   },
